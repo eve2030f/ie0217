@@ -75,7 +75,7 @@ int main(int argc,char* argv[]) {
 //argv:./holaMundo.exe
 //argv:5
 //argv:hola
-//argv:65		nos ayudan a pasar al mainargumentos
+//argv:65		nos ayudan a pasar al main argumentos
 	return 0;
 
 }
