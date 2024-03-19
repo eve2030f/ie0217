@@ -1,5 +1,5 @@
 # IE0217
-##ESTA ES LA CARPETA DEL PREVIO 2
+ESTA ES LA CARPETA DEL PREVIO 2
 Estudiante: Evelyn Feng Wu B82870
 
 _Este previo incluye todos los ejercicios vistos en la clase virtual asincrónica y los que tienen nombre P2 son los presentados en la presentación._
@@ -9,5 +9,7 @@ _Este previo incluye todos los ejercicios vistos en la clase virtual asincrónic
 
 Recuerde que para compilar , sirvase en correr los siguientes:
 ```
-g++ -o nombre_archivo_exe_creado.exe ./nombre_archivo_cpp.cpp 
+g++ -o ./nombre_archivo_exe_creado.exe ./nombre_archivo_cpp.cpp
+
+./nombre_archivo_exe_creado.exe
 ```
