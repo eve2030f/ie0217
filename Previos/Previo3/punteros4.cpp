@@ -7,12 +7,12 @@ int main() {
     int* pointVar; // Declara un puntero a entero 'pointVar'
 
     // Almacena la dirección de 'var' en 'pointVar'
-    pointVar = &var;
+    pointVar = &var; //No se puede poner solo un int pues es una direccion
 
     // Imprime el valor de 'var'
     cout << "var = " << var << endl;
 
-    // Imprime el valor apuntado por 'pointVar' (el contenido de 'var')
+    // Imprime el valor apuntado por 'pointVar' direccion 
     cout << "*pointVar = " << *pointVar << endl << endl;
 
     cout << "Changing value of var to 7:" << endl;
@@ -23,7 +23,7 @@ int main() {
     // Imprime el nuevo valor de 'var'
     cout << "var = " << var << endl;
 
-    // Imprime el valor apuntado por 'pointVar' (debería ser el nuevo valor de 'var')
+    // Imprime *pointVar el contenido de lo que esta en la memoria de ese puntero, el valor al que apunta
     cout << "*pointVar = " << *pointVar << endl << endl;
 
     cout << "Changing value of *pointVar to 16:" << endl;
@@ -34,10 +34,10 @@ int main() {
     // Imprime el nuevo valor de 'var'
     cout << "var = " << var << endl;
 
-    // Imprime el valor apuntado por 'pointVar' (debería ser el mismo que 'var')
+    // Imprime *pointVar el contenido de lo que esta en la memoria de ese puntero, el valor al que apunta
     cout << "*pointVar = " << *pointVar << endl;
 
-    return 0; // Retorna 0 para indicar que el programa se ejecutó correctamente
+    return 0; 
 }
 //imprime
 //var = 5
