@@ -19,7 +19,7 @@ int main() {
     cout << "Enter feet: ";
     cin >> ptr->feet; // Leer los pies y asignarlos al miembro feet de d utilizando el operador de flecha (->)
 
-    // Solicitar al usuario que ingrese las pulgadas
+    // Solicitar al usuario que ingrese las pulgadas, utilizan la flecha para no tener que poner el *, es más automético
     cout << "Enter inch: ";
     cin >> ptr->inch; // Leer las pulgadas y asignarlas al miembro inch de d utilizando el operador de flecha (->)
 
