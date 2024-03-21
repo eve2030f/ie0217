@@ -5,7 +5,7 @@ Estudiante: Evelyn Feng Wu B82870
 
 _Este previo incluye todos los ejercicios vistos en la clase virtual asincrónica y los que tienen nombre ppt son los presentados en la presentación._
 
-**Contiene los 25 ejercicios vistos**
+**Contiene los 23 ejercicios vistos**
 
 
 Recuerde que para compilar , sirvase en correr los siguientes:
