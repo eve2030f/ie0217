@@ -10,12 +10,12 @@
 
 std::string dificultadToString(Dificultad dificultad);
 void mostrarMenu(Dificultad dificultad);
-void agregarPalabra(std::vector<std::string>& diccionario);
-void mostrarDiccionario(const std::vector<std::string>& diccionario);
-void inicializaJuego(Ahorcado& juego, Dificultad dificultad, const std::vector<std::string>& diccionario);
-void mostrarEstadoJuego(const Ahorcado& juego);
-void adivinarLetra(Ahorcado& juego, char letra);
+void agregarPalabra(std::vector<std::string>* diccionario); 
+void mostrarDiccionario(const std::vector<std::string>* diccionario); 
+void inicializaJuego(Ahorcado* juego, Dificultad dificultad, const std::vector<std::string>* diccionario); 
+void mostrarEstadoJuego(const Ahorcado* juego); 
+void adivinarLetra(Ahorcado* juego, char letra); 
+bool juegoTerminado(const Ahorcado* juego); 
 void limpiarBufferEntrada();
-bool juegoTerminado(const Ahorcado& juego);
 #endif
 
