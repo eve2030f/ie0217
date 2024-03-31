@@ -1,25 +1,34 @@
 //Tarea 1 B82870 Evelyn Feng
 
-//Estrucutra del juego: AHORCADO
-
-#ifndef AHORCADO_HPP //si no esta definido entonces ejecute, para evitar errores de definicion
+#ifndef AHORCADO_HPP
 #define AHORCADO_HPP
 
 #include <string>
-#include <iostream>
 
+/**
+ * @file ahorcado.hpp
+ * @brief Contiene la definición de la estructura Ahorcado y el enum Dificultad para el juego de ahorcado.
+ */
 
-enum Dificultad { FACIL, INTERMEDIO, DIFICIL }; // enumera la dificultad
-
-//estructura del juego
-struct Ahorcado {
-    std::string palabraAAdivinar; //palabra a adivinar 
-    std::string estadoActual; //estado actual de la palabra adivinada
-    int intentosMax; //intentos maximos
-    int intentos; //intentos realizados
-    std::string intentosRealizados;// Las letras intentadas
-    Dificultad dificultad; //llama a las dificultades
+/**
+ * @brief Enumeración para representar las dificultades del juego de ahorcado.
+ */
+enum Dificultad {
+    FACIL, 
+    INTERMEDIO, 
+    DIFICIL 
 };
 
+/**
+ * @brief Estructura para representar el juego de ahorcado.
+ */
+struct Ahorcado {
+    std::string palabraAAdivinar; ///< Palabra a adivinar
+    std::string estadoActual; ///< Estado actual de la palabra adivinada
+    int intentosMax; ///< Número máximo de intentos permitidos
+    int intentos; ///< Número de intentos realizados
+    std::string intentosRealizados; ///< Letras intentadas
+    Dificultad dificultad; ///< Dificultad del juego
+};
 
-#endif
+#endif 
