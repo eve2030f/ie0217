@@ -30,59 +30,62 @@ void mostrarMenu(Dificultad dificultad) {
     std::cout << "Selecciona una opcion: ";
 }
 
-void agregarPalabra(std::vector<std::string>& diccionario) {
+void agregarPalabra(std::vector<std::string>* diccionario) {
     std::string palabra;
     std::cout << "\nIngrese la palabra que desea agregar al diccionario: ";
     std::cin >> palabra;
-    diccionario.push_back(palabra);
+    diccionario->push_back(palabra);
     std::cout << "Palabra agregada exitosamente." << std::endl;
 }
 
-void mostrarDiccionario(const std::vector<std::string>& diccionario) {
+void mostrarDiccionario(const std::vector<std::string>* diccionario) {
     std::cout << "\nPalabras del diccionario:" << std::endl;
-    for (const auto& palabra : diccionario) {
+    for (const auto& palabra : *diccionario) {
         std::cout << palabra << std::endl;
     }
 }
 
-void inicializaJuego(Ahorcado& juego, Dificultad dificultad, const std::vector<std::string>& diccionario) {
+void inicializaJuego(Ahorcado* juego, Dificultad dificultad, const std::vector<std::string>*diccionario) {
     srand(time(nullptr));
-    int indice = rand() % diccionario.size();
-    juego.palabraAAdivinar = diccionario[indice];
-    juego.estadoActual = std::string(juego.palabraAAdivinar.length(), '_');
+    int indice = rand() % diccionario->size();
+    juego->palabraAAdivinar = (*diccionario)[indice];
+    juego->estadoActual = std::string(juego->palabraAAdivinar.length(), '_');
     switch (dificultad) {
         case FACIL:
-            juego.intentosMax = 7;
+            juego->intentosMax = 7;
             break;
         case INTERMEDIO:
-            juego.intentosMax = 5;
+            juego->intentosMax = 5;
             break;
         case DIFICIL:
-            juego.intentosMax = 3;
+            juego->intentosMax = 3;
             break;
         default:
-            juego.intentosMax = 7;
+            juego->intentosMax = 7; //default es facil
     }
-    juego.intentos = 0;
-    juego.dificultad = dificultad;
+    juego->intentos = 0;
+    juego->dificultad = dificultad;
 }
 
-void mostrarEstadoJuego(const Ahorcado& juego) {
-    std::cout << "Palabra a adivinar: " << juego.estadoActual << std::endl;
-    std::cout << "Intentos restantes: " << juego.intentosMax - juego.intentos << std::endl;
-    std::cout << "Intentos permitidos: " << juego.intentosMax << std::endl;
+void mostrarEstadoJuego(const Ahorcado* juego) {
+    std::cout << "\n Palabra a adivinar: " << juego->estadoActual << std::endl;
+    std::cout << "Intentos restantes: " << juego->intentosMax - juego->intentos << std::endl;
+    std::cout << "Intentos permitidos: " << juego->intentosMax << std::endl;
 }
 
-void adivinarLetra(Ahorcado& juego, char letra) {
+void adivinarLetra(Ahorcado* juego, char letra) {
+    // Convertir la letra ingresada a minúscula
+    letra = std::tolower(letra);
+    
     bool letraAdivinada = false;
-    for (size_t i = 0; i < juego.palabraAAdivinar.length(); ++i) {
-        if (juego.palabraAAdivinar[i] == letra) {
-            juego.estadoActual[i] = letra;
+    for (size_t i = 0; i < juego->palabraAAdivinar.length(); ++i) {
+        if (juego->palabraAAdivinar[i] == letra) {
+            juego->estadoActual[i] = letra;
             letraAdivinada = true;
         }
     }
     if (!letraAdivinada) {
-        ++juego.intentos;
+        ++juego->intentos;
     }
 }
 
@@ -91,8 +94,8 @@ void limpiarBufferEntrada() {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Descartar caracteres restantes en el buffer de entrada
 }
 
-bool juegoTerminado(const Ahorcado& juego) {
-    if (juego.estadoActual == juego.palabraAAdivinar || juego.intentos >= juego.intentosMax) {
+bool juegoTerminado(const Ahorcado* juego) {
+    if (juego->estadoActual == juego->palabraAAdivinar || juego->intentos >= juego->intentosMax) {
         return true;
     }
     return false;
