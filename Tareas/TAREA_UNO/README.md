@@ -79,6 +79,7 @@ Sale del Menú
 https://6609df56b87aa3125843464e--proyectoie0217b82870ef.netlify.app
 
 
+
 ## Parte Teórica
 
 ### 1.	¿Cuál es la principal diferencia entre C y C++?
@@ -270,8 +271,13 @@ En C++, segun Mostovoi y Pinkas (2020), la convención más comúnmente utilizad
 
 Algunos de estos ejemplos son utilizados en el programa. Siguiendo esta convención, los nombres son más legibles y fáciles de entender para otros programadores o usuarios, lo que facilita la colaboración en proyectos de código abierto o en equipos de desarrollo.
 
+## Doxygen
+Doxygen es una herramienta de generación de documentación para código fuente utilizando comentarios especiales que el programador incluye en el código. Estos comentarios especiales son reconocidos por Doxygen y se utilizan para generar la documentación en formato HTML, PDF, LaTeX, y otros formatos. Permite generar documentación para diversos lenguajes de programación, incluyendo C++, C, Java, Python, entre otros. La documentación generada por Doxygen puede incluir descripciones de clases, funciones, variables, estructuras de datos, relaciones entre ellos, así como comentarios en el código fuente (Doxygen, 2024)
+
+
 ## Referencias
 - Cristóbal, J. (2016). Qué es Markdown. https://markdown.es/
+- Doxygen. (2024). Code Documentation Automated.https://www.doxygen.nl/
 - Github. (2024). Sintaxis de escritura y formato básicos. https://docs.github.com/es/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 - IBM. (2023). Programas de fuga de memoria. https://www.ibm.com/docs/es/aix/7.3?topic=performance-memory-leaking-programs
 - Mostovoi, A. & Pinkas, L. (2020). Programación I. https://es.scribd.com/document/641831486/Programacion-I
