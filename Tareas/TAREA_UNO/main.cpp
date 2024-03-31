@@ -51,7 +51,7 @@ int main() {
                         dificultad = DIFICIL;
                         break;
                     default:
-                        std::cout << "\n Opcion invalida. Seleccionando dificultad Facil por defecto." << std::endl; //mensaje si ingresa opcion invalida
+                        std::cout << "\n Opcion invalida. Seleccionando dificultad Facil por defecto." << std::endl; //mensaje si ingresa opcion invalida ya sea letra o numero incorrecto
                         dificultad = FACIL;
                         break;
                 }
@@ -60,18 +60,18 @@ int main() {
                 if (diccionario.empty()) {
                     std::cout << "El diccionario de palabras esta vacio. Por favor, agregue palabras antes de iniciar el juego." << std::endl;
                 } else {
-                    inicializaJuego(juego, dificultad, diccionario);
+                    inicializaJuego(&juego, dificultad, &diccionario);
                     std::cout << "Iniciando juego  " << dificultadToString(dificultad) << std::endl;
-                    while (!juegoTerminado(juego)) {
-                        mostrarEstadoJuego(juego);
+                    while (!juegoTerminado(&juego)) {
+                        mostrarEstadoJuego(&juego); //uso de puntero
                         char letra;
                         std::cout << "Ingrese una letra: ";
                         std::cin >> letra;
                         if (!isalpha(letra)) {
-                            std::cout << "Invalido. Ingrese una letra." << std::endl;
+                            std::cout << "\nInvalido. Ingrese una letra." << std::endl; //mensaje de error si pone un numero en el juego
                             continue;
                         }
-                        adivinarLetra(juego, letra);
+                        adivinarLetra(&juego, letra); //uso de puntero
                     }
                     if (juego.estadoActual == juego.palabraAAdivinar) {
                         std::cout << "FELICIDADES has adivinado la palabra!" << std::endl;
@@ -81,10 +81,10 @@ int main() {
                 }
                 break;
             case 3:
-                agregarPalabra(diccionario);
+                agregarPalabra(&diccionario); //uso de puntero
                 break;
             case 4:
-                mostrarDiccionario(diccionario);
+                mostrarDiccionario(&diccionario); //uso de puntero
                 break;
             case 5:
                 salir = true;
