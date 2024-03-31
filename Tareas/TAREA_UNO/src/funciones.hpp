@@ -10,7 +10,7 @@
 
 std::string dificultadToString(Dificultad dificultad);
 void mostrarMenu(Dificultad dificultad);
-void agregarPalabra(std::vector<std::string>* diccionario); 
+void agregarPalabra(std::vector<std::string>* diccionario); // el asterisco indica que es un puntero
 void mostrarDiccionario(const std::vector<std::string>* diccionario); 
 void inicializaJuego(Ahorcado* juego, Dificultad dificultad, const std::vector<std::string>* diccionario); 
 void mostrarEstadoJuego(const Ahorcado* juego); 
