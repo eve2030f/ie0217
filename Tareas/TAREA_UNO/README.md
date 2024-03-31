@@ -10,28 +10,40 @@ Estudiante: Evelyn Feng B82870
 
 I Semestre 2024
 
-## Parte 1.
+
+## Parte Práctica - Juego Ahorcado
+
+Para ejecutar el código siga las siguientes instrucciones digitando:
+```
+g++ -o ahorcado.exe .\main.cpp .\funciones.cpp
+
+.\ahorcado.exe
+````
+
+
+## Parte Teórica
 
 1.	¿Cuál es la principal diferencia entre C y C++?
 
 La principal diferencia es que C++ es un lenguaje de programación orientado a objetos, mientras que C es más procedimental o ejecución de procedimientos. C++ es más complejo.
+
 2.	Explique el propósito y el uso de los siguientes comandos de Git: git init, git add, git commit, git push, git pull, git clone, git branch, git merge.
 
-git init: Inicializa un nuevo repositorio Git.
+_git init_: Inicializa un nuevo repositorio Git.
 
-git add: Agrega cambios al área de preparación.
+_git add_: Agrega cambios al área de preparación.
 
-git commit: Registra los cambios en el repositorio. Se puede modificar o agregar el nombre del cambio a realizar.
+_git commit_: Registra los cambios en el repositorio. Se puede modificar o agregar el nombre del cambio a realizar.
 
-git push: Sube los cambios locales (computadora). al repositorio remoto(GitHub).
+_git push_: Sube los cambios locales (computadora). al repositorio remoto(GitHub).
 
-git pull: Obtiene los cambios del repositorio remoto (GitHub) y los fusiona con el repositorio local (computadora).
+_git pull_: Obtiene los cambios del repositorio remoto (GitHub) y los fusiona con el repositorio local (computadora).
 
-git clone: Clona un repositorio remoto (GitHub) en el repositorio local (computadora).
+_git clone_: Clona un repositorio remoto (GitHub) en el repositorio local (computadora).
 
-git branch: Lista, crea o elimina ramas.
+_git branch_: Lista, crea o elimina ramas.
 
-git merge: Fusiona una rama con otra, usualmente cuando hay un pul request.
+_git merge_: Fusiona una rama con otra, usualmente cuando hay un pul request.
 
 3.	¿Qué es Git y cuál es su propósito en el desarrollo de software?
 
@@ -78,12 +90,38 @@ Inicializar una variable significa asignarle un valor inicial (int num = 10) . D
 La sobrecarga de funciones en C++ permite definir múltiples funciones con el mismo nombre pero con diferentes parámetros. Esto facilita la reutilización del nombre de función y hace que el código sea más fácil de entender.
 
 
+## Formato _Markdown_
 
-##Parte Práctica - Juego Ahorcado
+Markdown nació como una herramienta de conversión de texto plano a HTML. Fue creada en 2004 por John Gruber y se distribuye de manera gratuita bajo una licencia BSD. Markdown es un lenguaje que permite crear contenido con una manera sencilla de escribir y manteniendo siemrpe un diseño legible. Permite simplificar la escritura añadiendo formatos tales como negritas, cursivas o enlaces utilizando puro texto; de este modo facilita, simplifica y hace más eficiente la escritura al evitar distracciones. Este tipo de formato es compatible con todas las plataformas a utilizar y es una manera de mantener todo el contenido accesible desde cualquier dispositivo (smartphones, ordenadores de escritorio, tablets…) (Cristóbal, 2016).
 
-Para ejecutar el código siga las siguientes instrucciones digitando:
+Algunos ejemplos de cómo dar formato con símbolos en Markdown son los siguientes:
 ```
-g++ -o ahorcado.exe .\main.cpp .\funciones.cpp
-
-.\ahorcado.exe
+# Título/encabezado principal
+## Título/encabezado secundario
+### Título/encabezado terciario
+aaa Texto
+** ** Negrita
+_ _ Cursiva
+*** *** Todo en negrita y cursiva
+~~ ~~ Tachado
+<sub> </sub> Subíndice
 ````
+Github (2024)
+
+## Convención mayormente utilizada en C++ para nombrar variables, clases, etc.
+En C++, segun Mostovoi y Pinkas (2020), la convención más comúnmente utilizada para nombrar variables, clases, etc., es conocida como el "camelCase". Esta convención tiene que ver con al forma de escribir  las variables, clases, funciones o atributos pues estas se realizan por palabras compuestas (dos o más palabras juntas), sin espacios y con cada palabra comenzando con mayúscula, a excepción de la primera letra de la primera palabra dependiendo del tipo de estructura. Algunos ejemplos del "camelCase" en C++ son:
+
+- Variables: intentosRealizados, estadoActual, registroDeEntrada.
+
+- Clases: MiClase, Persona, IngresoDeDatos.
+
+- Funciones: calcularPromedio, imprimirMensaje, obtenerResultado.
+- 
+- Atributos: edad, dificultad
+
+Algunos de estos ejemplos son utilizados en el programa. Siguiendo esta convención, los nombres son más legibles y fáciles de entender para otros programadores o usuarios, lo que facilita la colaboración en proyectos de código abierto o en equipos de desarrollo.
+
+## Referencias
+- Cristóbal, J. (2016). Qué es Markdown. https://markdown.es/
+- Github. (2024). Sintaxis de escritura y formato básicos. https://docs.github.com/es/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+- Mostovoi, A. & Pinkas, L. (2020). Programación I. https://es.scribd.com/document/641831486/Programacion-I
