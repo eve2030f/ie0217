@@ -65,8 +65,8 @@ Un pull request es una solicitud para fusionar cambios de una rama de caracterí
 
 La diferencia principal entre un lenguaje de programación compilado y uno interpretado es que los lenguajes compilados se traducen completamente a lenguaje de máquina antes de ejecutarse, mientras que los lenguajes interpretados se traducen línea por línea durante la ejecución.
 
-•	C++ es un ejemplo de lenguaje compilado, óptimo para programas que requieren alta eficiencia y rendimiento, como sistemas operativos o aplicaciones de bajo nivel.
-•	Un lenguaje interpretado es Python, adecuado para el desarrollo rápido de prototipos y aplicaciones web.
+- C++ es un ejemplo de lenguaje compilado, óptimo para programas que requieren alta eficiencia y rendimiento, como sistemas operativos o aplicaciones de bajo nivel.
+- Un lenguaje interpretado es Python, adecuado para el desarrollo rápido de prototipos y aplicaciones web.
 ### 8.	Explique qué es un linker en el contexto de un lenguaje de programación compilado. ¿Cuál es su función principal y por qué es esencial en el proceso de compilación?
 
 Un linker es una herramienta que une varios archivos objeto y bibliotecas generados durante la compilación en un único ejecutable. Su función principal es resolver las referencias a símbolos y enlazar las funciones utilizadas en diferentes partes del código. Por ejemplo, desde main.cpp con void saludar() puedo llamar a la función saludar() definida con un void en el archivo función.cpp. 
