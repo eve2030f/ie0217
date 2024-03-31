@@ -48,7 +48,7 @@ Se le despliega una palabra aleatoria del diccionario y debe ingresar una letra 
 Cada vez que adivina una letra se le resta intentos restantes si está mala o se agrega en las casillas correspondientes de Palabra a adivinar si está buena. En caso de quedarse sin intentos tiene una última oportunidad de adivinar la palabra completa. En caso de ingresar la misma letra dos veces le sale un mensaje de error. ¡Buena suerte jugando!
 
 ````
-Palabra a adivinar: ______
+Palabra a adivinar: _ _ _ _ _ _
 Intentos restantes: 7
 Intentos permitidos: 7
 Ingrese una letra:
