@@ -1,6 +1,6 @@
 //Tarea 1 B82870 Evelyn Feng
 
-//Llama a las funciones
+//Llama a las funciones, si no estan aca no funciona si las llama en el main
 
 #ifndef FUNCIONES_HPP //si no esta definido entonces ejecute, para evitar errores de definicion
 #define FUNCIONES_HPP
