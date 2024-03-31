@@ -7,7 +7,12 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <limits>
+#include <limits> // Para limpiar el buffer de entrada
+
+//void limpiarBufferEntrada() {
+//    std::cin.clear(); // Limpiar el estado del flujo de entrada
+//    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Descartar caracteres restantes en el buffer de entrada
+//}
 
 
 int main() {
@@ -21,16 +26,20 @@ int main() {
     while (!salir) {
         mostrarMenu(dificultad);
         std::cin >> opcion;
+        // Limpiar el buffer de entrada después de leer la opcion del menu, evita los e
+        limpiarBufferEntrada();
 
         switch (opcion) {
             case 1:
-                std::cout << "\nElige la dificultad:" << std::endl;
+                std::cout << "\n Elige la dificultad:" << std::endl;
                 std::cout << "1. Facil (7 intentos)" << std::endl;
                 std::cout << "2. Intermedio (5 intentos)" << std::endl;
                 std::cout << "3. Dificil (3 intentos)" << std::endl;
                 std::cout << "Selecciona una opcion: ";
                 int nivel;
                 std::cin >> nivel;
+                // limpia las entradas inválidas
+                limpiarBufferEntrada();
                 switch (nivel) {
                     case 1:
                         dificultad = FACIL;
@@ -42,7 +51,7 @@ int main() {
                         dificultad = DIFICIL;
                         break;
                     default:
-                        std::cout << "Opcion invalida. Seleccionando dificultad Facil por defecto." << std::endl;
+                        std::cout << "\n Opcion invalida. Seleccionando dificultad Facil por defecto." << std::endl; //mensaje si ingresa opcion invalida
                         dificultad = FACIL;
                         break;
                 }
@@ -52,22 +61,22 @@ int main() {
                     std::cout << "El diccionario de palabras esta vacio. Por favor, agregue palabras antes de iniciar el juego." << std::endl;
                 } else {
                     inicializaJuego(juego, dificultad, diccionario);
-                    std::cout << "Iniciando juego..." << dificultadToString(dificultad) << std::endl;
+                    std::cout << "Iniciando juego  " << dificultadToString(dificultad) << std::endl;
                     while (!juegoTerminado(juego)) {
                         mostrarEstadoJuego(juego);
                         char letra;
                         std::cout << "Ingrese una letra: ";
                         std::cin >> letra;
                         if (!isalpha(letra)) {
-                            std::cout << "Entrada invalida. Por favor, ingrese una letra." << std::endl;
+                            std::cout << "Invalido. Ingrese una letra." << std::endl;
                             continue;
                         }
                         adivinarLetra(juego, letra);
                     }
                     if (juego.estadoActual == juego.palabraAAdivinar) {
-                        std::cout << "¡Felicidades, has adivinado la palabra!" << std::endl;
+                        std::cout << "FELICIDADES has adivinado la palabra!" << std::endl;
                     } else {
-                        std::cout << "¡Lo siento, has perdido! La palabra era: " << juego.palabraAAdivinar << std::endl;
+                        std::cout << "PERDISTE La palabra era: " << juego.palabraAAdivinar << std::endl;
                     }
                 }
                 break;
@@ -81,7 +90,7 @@ int main() {
                 salir = true;
                 break;
             default:
-                std::cout << "Opción no válida. Por favor, seleccione una opción válida del menú." << std::endl;
+                std::cout << "Opcion no valida. Por favor, seleccione una opcion valida del menu." << std::endl;
                 break;
         }
     }
