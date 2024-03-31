@@ -2,7 +2,7 @@ Universidad de Costa Rica
 
 Estructuras Abstractas de Datos y Algoritmos para Ingeniería IE0217
 
-#Tarea 1
+# Tarea 1
 
 Profesor: Rafael Esteban Badilla Alvarado
 
@@ -10,7 +10,7 @@ Estudiante: Evelyn Feng B82870
 
 I Semestre 2024
 
-##Parte 1.
+## Parte 1.
 
 1.	¿Cuál es la principal diferencia entre C y C++?
 
