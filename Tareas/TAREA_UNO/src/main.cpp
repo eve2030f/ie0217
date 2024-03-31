@@ -3,6 +3,7 @@
 #include "funciones.hpp"
 #include "ahorcado.hpp"
 
+#include <algorithm> // Para utilizar std::transform
 #include <vector>
 #include <iostream>
 #include <cstdlib>
@@ -67,8 +68,9 @@ int main() {
                         char letra;
                         std::cout << "Ingrese una letra: ";
                         std::cin >> letra;
+                        limpiarBufferEntrada();
                         if (!isalpha(letra)) {
-                            std::cout << "\nInvalido. Ingrese una letra." << std::endl; //mensaje de error si pone un numero en el juego
+                            std::cout << "\n Invalido. Ingrese una letra." << std::endl; //mensaje de error si pone un numero en el juego
                             continue;
                         }
                         adivinarLetra(&juego, letra); //uso de puntero
@@ -76,7 +78,24 @@ int main() {
                     if (juego.estadoActual == juego.palabraAAdivinar) {
                         std::cout << "FELICIDADES has adivinado la palabra!" << std::endl;
                     } else {
-                        std::cout << "PERDISTE La palabra era: " << juego.palabraAAdivinar << std::endl;
+                        std::cout << "\n Ultima oportunidad, intente adivinar la palabra completa: " << std::endl;
+                        std::string intentoPalabra;
+                        std::cout << "Ingrese la palabra completa: ";
+                        std::cin >> intentoPalabra;
+                        // Convertir la palabra ingresada a mayúsculas
+                        std::transform(intentoPalabra.begin(), intentoPalabra.end(), intentoPalabra.begin(), ::tolower);
+                        limpiarBufferEntrada(); // Limpiar el buffer de entrada antes de la próxima entrada
+                        // Valida si se ingresó un número en lugar de una palabra
+                        if (std::any_of(intentoPalabra.begin(), intentoPalabra.end(), ::isdigit)) {
+                        std::cout << "Ingresaste un número en lugar de una palabra." << std::endl;
+                        break;
+                    }
+
+                        if (intentoPalabra == juego.palabraAAdivinar) {
+                            std::cout << "FELICIDADES Has adivinado la palabra!" << std::endl;
+                        } else {
+                            std::cout << "¡GAME OVER! La palabra era: " << juego.palabraAAdivinar << std::endl;
+                        }
                     }
                 }
                 break;

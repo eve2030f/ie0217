@@ -68,7 +68,7 @@ void inicializaJuego(Ahorcado* juego, Dificultad dificultad, const std::vector<s
 }
 
 void mostrarEstadoJuego(const Ahorcado* juego) {
-    std::cout << "\n Palabra a adivinar: " << juego->estadoActual << std::endl;
+    std::cout << "\nPalabra a adivinar: " << juego->estadoActual << std::endl;
     std::cout << "Intentos restantes: " << juego->intentosMax - juego->intentos << std::endl;
     std::cout << "Intentos permitidos: " << juego->intentosMax << std::endl;
 }
