@@ -1,4 +1,4 @@
-Universidad de Costa Rica
+##Universidad de Costa Rica
 
 Estructuras Abstractas de Datos y Algoritmos para Ingeniería IE0217
 
