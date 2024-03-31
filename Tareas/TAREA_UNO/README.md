@@ -1,12 +1,12 @@
+# Tarea 1
+
 Universidad de Costa Rica
 
 Estructuras Abstractas de Datos y Algoritmos para Ingeniería IE0217
 
-# Tarea 1
-
 Profesor: Rafael Esteban Badilla Alvarado
 
-Estudiante: Evelyn Feng B82870
+**Estudiante: Evelyn Feng B82870**
 
 I Semestre 2024
 
