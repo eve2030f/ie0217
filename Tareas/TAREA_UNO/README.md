@@ -62,9 +62,9 @@ Ingrese la palabra completa:
 Selecciona **3.**
 
 Se le despliega:
-
+````
 "Ingrese la palabra que desea agregar al diccionario:" (Acá debe escribr la palabra a ingresar. No poner números porque le sale error.)
-
+````
 Selecciona **4.**
 
 Se le despliegan las palabras presentes en el diccionario
