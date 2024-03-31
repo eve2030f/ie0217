@@ -2,7 +2,7 @@ Universidad de Costa Rica
 
 Estructuras Abstractas de Datos y Algoritmos para Ingeniería IE0217
 
-#**Tarea 1 **
+#Tarea 1
 
 Profesor: Rafael Esteban Badilla Alvarado
 
