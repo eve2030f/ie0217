@@ -15,6 +15,7 @@ void mostrarDiccionario(const std::vector<std::string>& diccionario);
 void inicializaJuego(Ahorcado& juego, Dificultad dificultad, const std::vector<std::string>& diccionario);
 void mostrarEstadoJuego(const Ahorcado& juego);
 void adivinarLetra(Ahorcado& juego, char letra);
+void limpiarBufferEntrada();
 bool juegoTerminado(const Ahorcado& juego);
 #endif
 
