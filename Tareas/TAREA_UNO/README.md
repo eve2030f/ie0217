@@ -76,7 +76,7 @@ Sale del Menú
 
 ## Link de Doxyfile por medio del Netlify haga click a:
 
-https://proyectie0217b82870.netlify.app/
+https://proyectie0217b82870.netlify.app/](https://proyectoie0217b82870ef.netlify.app/
 
 
 ## Parte Teórica
