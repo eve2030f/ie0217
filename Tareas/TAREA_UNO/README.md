@@ -196,6 +196,7 @@ Pasar parámetros por valor copia el valor de la variable original, por referenc
 ### 18.	Cuando se usa un puntero para apuntar a un arreglo en C++, ¿a qué valor o dirección apunta inicialmente? Describa cómo sería la forma de acceder a todos los datos de ese arreglo mediante el puntero.
 
 Inicialmente apunta a la primera posición del arreglo [0] . Se accede a todos los datos del arreglo mediante un for y un *(ptr + i) para acceder a cada elemento. 
+´´´´
 #include <iostream>
 int main() {
     int arreglo[] = {10, 20, 30, 40, 50}; // Declaración de un arreglo de enteros
@@ -207,7 +208,7 @@ int main() {
     }
 
     return 0;
-    
+    ´´´´
 ### 19.	Explique para qué son empleados los punteros dobles en C++. Proporcione ejemplos de situaciones en las que los punteros dobles son necesarios o beneficiosos.
 
 Los punteros dobles en C++ se utilizan para apuntar a punteros. Estos punteros se suelen utilizar en el manejo o devolución de matrices complejas y dinámicas. También,si se necesita modificar un puntero dentro de una función y desea que los cambios sean visibles fuera de la función se pueden utilizar este tipo de punteros. Además, se pueden utilizar para mantener un puntero a un bloque de memoria que contiene punteros a filas individuales de la matriz. Esto es útil cuando la longitud de las filas puede variar o cuando la matriz es multidimensional.
@@ -227,7 +228,7 @@ Una lista o lista enlazada es una estructura de datos que permite almacenar y ma
 
 ### 23.	¿Investigue qué es un memory leak?
 
-Un memory leak o fuga de memoria es un problema común en la programación donde un programa asigna memoria dinámicamente pero no la libera adecuadamente después de su uso. Esto conduce a un agotamiento gradual de la memoria disponible en el sistema. Además, puede conllevar a la fragmentación de la memoria y a la acumulación de grandes números de páginas en su mayoría llenas de basura en la memoria real y en el espacio de la página. Para corregirlo puede utilizar delete. 
+Un memory leak o fuga de memoria es un problema común en la programación donde un programa asigna memoria dinámicamente pero no la libera adecuadamente después de su uso. Esto conduce a un agotamiento gradual de la memoria disponible en el sistema. Además, puede conllevar a la fragmentación de la memoria y a la acumulación de grandes números de páginas en su mayoría llenas de basura en la memoria real y en el espacio de la página. Para corregirlo puede utilizar delete (IBM, 2023).
 
 
 
@@ -266,5 +267,6 @@ Algunos de estos ejemplos son utilizados en el programa. Siguiendo esta convenci
 ## Referencias
 - Cristóbal, J. (2016). Qué es Markdown. https://markdown.es/
 - Github. (2024). Sintaxis de escritura y formato básicos. https://docs.github.com/es/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+- IBM. (2023). Programas de fuga de memoria. https://www.ibm.com/docs/es/aix/7.3?topic=performance-memory-leaking-programs
 - Mostovoi, A. & Pinkas, L. (2020). Programación I. https://es.scribd.com/document/641831486/Programacion-I
 - Universidad Carlos III de Madrid. (2017). Arquitectura de Sistemas. https://www.it.uc3m.es/pbasanta/asng/course_notes/index_es.html
