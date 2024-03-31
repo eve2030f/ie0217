@@ -172,6 +172,7 @@ int main() {
 
     return 0;
 }
+
 ´´´´
 ### 13.	¿Qué es un branch (rama) en Git y cómo se utiliza?
 
@@ -208,7 +209,7 @@ int main() {
     }
 
     return 0;
-    ´´´´
+  ´´´´
 ### 19.	Explique para qué son empleados los punteros dobles en C++. Proporcione ejemplos de situaciones en las que los punteros dobles son necesarios o beneficiosos.
 
 Los punteros dobles en C++ se utilizan para apuntar a punteros. Estos punteros se suelen utilizar en el manejo o devolución de matrices complejas y dinámicas. También,si se necesita modificar un puntero dentro de una función y desea que los cambios sean visibles fuera de la función se pueden utilizar este tipo de punteros. Además, se pueden utilizar para mantener un puntero a un bloque de memoria que contiene punteros a filas individuales de la matriz. Esto es útil cuando la longitud de las filas puede variar o cuando la matriz es multidimensional.
