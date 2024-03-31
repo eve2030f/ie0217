@@ -1,10 +1,17 @@
 //Tarea 1 B82870 Evelyn Feng
-
-//indica lo que realiza cada funcion
 /**
  * @file funciones.cpp
  * @brief Implementación de las funciones auxiliares para el juego de ahorcado.
+ * 
+ * Este archivo contiene la implementación de las funciones auxiliares utilizadas para el juego del ahorcado,
+ * como la conversión de dificultades, mostrar el menú, agregar palabras al diccionario, entre otras.
+ * 
+ * @author Evelyn Feng
+ * @date 31/3/24
+ * @license MIT License
+ * Este programa está sujeto a los términos y condiciones de la licencia resente en el archivo 'licencia.txt'.
  */
+
 
 #include "funciones.hpp"
 #include <iostream>

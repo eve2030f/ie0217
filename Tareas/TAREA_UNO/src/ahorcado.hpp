@@ -1,5 +1,16 @@
 //Tarea 1 B82870 Evelyn Feng
-
+/**
+ * @file ahorcado.hpp
+ * @brief Definición de la estructura Ahorcado y la enumeración Dificultad para el juego del ahorcado.
+ * 
+ * Este archivo contiene la definición de la estructura Ahorcado y la enumeración Dificultad, que son utilizadas
+ * para representar el estado y las dificultades del juego del ahorcado.
+ * 
+ * @author Evelyn Feng
+ * @date 31/3/24
+ * @license MIT License
+ * Este programa está sujeto a los términos y condiciones de la licencia resente en el archivo 'licencia.txt'.
+ */
 #ifndef AHORCADO_HPP
 #define AHORCADO_HPP
 

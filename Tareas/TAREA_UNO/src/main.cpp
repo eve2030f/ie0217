@@ -2,7 +2,14 @@
 
 /**
  * @file main.cpp
- * @brief Contiene la función main del juego de ahorcado.
+ * @brief Programa principal para el juego del ahorcado.
+ * 
+ * Este archivo contiene la función principal `main` que inicia el juego del ahorcado.
+ * 
+ * @author Evelyn Feng
+ * @date 31/3/24
+ * @license MIT License
+ * Este programa está sujeto a los términos y condiciones de la licencia resente en el archivo 'licencia.txt'.
  */
 
 #include "funciones.hpp"
