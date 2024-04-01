@@ -13,6 +13,10 @@ class Molde {
         Molde(double largo_p, double ancho_p, double alto_p):largo(largo_p),ancho(ancho_p),alto(alto_p){
             cout << "Probando si se puede imprimir" << endl;
         }
+
+        ~Molde(){
+            cout << "Saludos desde el destructor de la clase Molde" << endl;
+        }
 // estos son los metodos pues son funciones dentro de la clase
         double calcularArea() {
             return largo * ancho;
