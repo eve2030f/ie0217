@@ -13,7 +13,7 @@ I Semestre 2024
 
 ## Ejecución de los códigos
 
-Para ejecutar los códigos del previo escriba en us VS Code:
+Para ejecutar los códigos del previo escriba en su VS Code:
 ```
 g++ -o nombre_cualquiera.exe .\nombre_de_funcion.cpp
 
