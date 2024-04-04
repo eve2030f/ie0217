@@ -4,9 +4,10 @@
 #define EMPLEADO_HPP
 
 #include <string>
-
+//lo anterior es solo la estructura
 class Empleado {
-    protected:
+    protected: 
+        //3 atributos protegidos
         std::string nombre;
         int edad;
         double salario;
@@ -17,6 +18,7 @@ class Empleado {
         //crea virtuales
         virtual ~Empleado(){} //destructor que limpia lo abierto al ejecutar el codigo
         virtual double calcularPago() const=0;//virtual puro o tipico : si o si se debe sobreescribir
+       //toda clase heredada de Empleado debe tener el calcularPago
         virtual void mostrarDetalles() const;// extra para la derivada
 };
 
