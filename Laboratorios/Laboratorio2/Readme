@@ -1,1 +1,21 @@
+# Laboratorio 2
 
+Universidad de Costa Rica
+
+Estructuras Abstractas de Datos y Algoritmos para Ingeniería IE0217
+
+Profesor: Rafael Esteban Badilla Alvarado
+
+**Estudiante: Evelyn Feng B82870**
+
+I Semestre 2024
+
+
+Para ejecutar el código debe correr los siguientes códigos:
+´´´´
+ g++ -o empleados.exe .\main.cpp .\Empleado.cpp .\EmpleadoAsalariado.cpp .\EmpleadoPorHoras.cpp
+ 
+ .\empleados.exe
+´´´´
+
+ 
