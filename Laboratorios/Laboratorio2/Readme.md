@@ -33,3 +33,4 @@ El polimorfismo se refiere a la capacidad de los objetos de una clase base de co
 
 ### Abstracción: 
 La abstracción se refiere a la capacidad de modelar objetos del mundo real como clases con atributos y comportamientos específicos. En nuestro ejemplo, las clases EmpleadoAsalariado y EmpleadoPorHoras son abstracciones de diferentes tipos de empleados que existen en el mundo real. Cada clase encapsula los detalles relevantes de un empleado, como su nombre, edad y salario, y proporciona métodos para interactuar con esos detalles. La abstracción permite a los programadores centrarse en los aspectos importantes de un objeto y ocultar los detalles innecesarios para simplificar el diseño y la implementación del sistema.
+
