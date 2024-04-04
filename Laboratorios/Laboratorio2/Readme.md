@@ -12,11 +12,12 @@ I Semestre 2024
 
 
 Para ejecutar el código debe correr los siguientes códigos:
-´´´´
+
+````
  g++ -o empleados.exe .\main.cpp .\Empleado.cpp .\EmpleadoAsalariado.cpp .\EmpleadoPorHoras.cpp
  
  .\empleados.exe
-´´´´
+````
 
  Algunos términos importantes a tomar en cuenta para este laboratorio son los siguientes:
 
