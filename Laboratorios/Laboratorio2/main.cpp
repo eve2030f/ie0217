@@ -5,18 +5,18 @@
 
 //mismas variables que en los include
 int main(){
-    EmpleadoAsalariado emp1("Marito",30,2000);
+    EmpleadoAsalariado emp1("Marito",30,2000); //almacena datos en constructores
     EmpleadoPorHoras emp2 ("Juana",25,10,40);
 
-    std::cout << "Detalle del empleado asalariado:" <<std::endl;
+    std::cout << "Detalle del empleado asalariado:" <<std::endl; //imprime nombre, edad y año
     emp1.mostrarDetalles();
-    std::cout<<"Pago: $" << emp1.calcularPago() <<std::endl;
+    std::cout<<"Pago: $" << emp1.calcularPago() <<std::endl; //IMPRIME el calculo de pago de Empleado
     
     std::cout<<"\nDetalles del empleado por horas:" << emp1.calcularPago() <<std::endl;
     emp2.mostrarDetalles();
-    std::cout<<"Pago: $" << emp2.calcularPago() <<std::endl;
+    std::cout<<"Pago: $" << emp2.calcularPago() <<std::endl;//IMPRIME el calculo de pago de EmpleadoPorHoras
 
-    return 0;
+    return 0; //para salir
 }
 
 //RESULTADO:
