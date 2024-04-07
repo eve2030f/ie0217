@@ -15,7 +15,7 @@ I Semestre 2024
 
 Para ejecutar los códigos del previo escriba en su VS Code:
 ```
-g++ -o nombre_cualquiera.exe .\nombre_de_funcion.cpp
+g++ -o nombre_cualquiera.exe .\nombre_de_archivo.cpp
 
 .\nombre_cualquiera.exe 
 ````
