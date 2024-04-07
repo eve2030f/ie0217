@@ -63,3 +63,6 @@ int main(){
     postorderTraversal(root);
 }
 //RESULTADO
+ //Inorder Traversal 5->12->6->1->9->
+ //Preorder Traversal 1->12->5->6->9->
+ // Postorder Traversal5->6->12->9->1->
