@@ -29,3 +29,12 @@ int main() {
     free(ptr); //libera memoria calloc
     return 0;
 }
+//RESULTADO
+//Initializing values...
+//
+//Initialized values
+//1
+//3
+//5
+//7
+//9

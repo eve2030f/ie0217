@@ -41,3 +41,15 @@ int main(){
     return 0;
 
 }
+//RESULTADO
+//Printing Values
+//0
+//1.5
+//3
+//4.5
+//6
+//12.5
+//15
+//17.5
+//20
+//22.5
