@@ -118,6 +118,7 @@ Un función prototipo es una declaración de la firma de una función antes de s
 En la programación orientada a objetos (OOP), los miembros se refieren a las variables y funciones asociadas a una clase. Los diferentes tipos de miembros en OOP son:
 
 •	Atributos o variables miembro: Representan el estado de un objeto y almacenan datos.
+
 •	Métodos o funciones miembro: Definen el comportamiento de un objeto y pueden manipular los atributos de la clase.
 
 14.	¿Qué es un memory leak? 
@@ -127,7 +128,9 @@ Un memory leak (fuga de memoria) ocurre cuando un programa asigna memoria dinám
 15.	¿Qué es y cuál es la importancia de la herencia multinivel, múltiple y jerárquica en C++?
 
 •	Herencia multinivel: Permite que una clase herede de otra clase que a su vez hereda de otra clase. Esto ayuda a organizar y reutilizar el código de manera más eficiente.
+
 •	Herencia múltiple: Permite que una clase herede de múltiples clases base. Esto facilita la reutilización de código al permitir que una clase tenga características de varias clases.
+
 •	Herencia jerárquica: Es cuando una clase base tiene múltiples clases derivadas. Esto proporciona una estructura organizada para representar relaciones entre objetos.
 
 16.	¿Qué es la composición y cómo se implementa en C++?
@@ -141,11 +144,13 @@ La sobreescritura de funciones es cuando una clase derivada redefine una funció
 18.	¿Qué es un método y un atributo y cuál es la diferencia entre ellos?
 
 •	Atributo: También llamado variable miembro, representa el estado de un objeto y almacena datos.
+
 •	Método: También llamado función miembro, define el comportamiento de un objeto y puede manipular los atributos de la clase. La diferencia principal es que los atributos representan datos mientras que los métodos representan comportamiento.
 
 19.	¿Qué es el constructor y el destructor en una clase?
 
 •	Constructor: Es un método especial que se llama automáticamente cuando se crea un objeto de una clase. Se utiliza para inicializar el objeto y puede aceptar parámetros para configurar el estado inicial del objeto.
+
 •	Destructor: Es un método especial que se llama automáticamente cuando un objeto se elimina. Se utiliza para liberar recursos asignados al objeto, como memoria dinámica o conexiones de red.
 
 20.	¿Qué es la sobrecarga de operadores en C++ y cómo se utiliza? 
