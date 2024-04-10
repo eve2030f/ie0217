@@ -1,5 +1,12 @@
 //Tarea 2 Evelyn Feng Wu B82870
-
+/**
+ * @file funciones.cpp
+ * 
+ * @author Evelyn Feng
+ * @date 10/4/24
+ * @license MIT License
+ * Este programa está sujeto a los términos y condiciones de la licencia resente en el archivo 'licencia.txt'.
+ */
 #include "funciones.hpp"
 #include <iostream>
 #include <algorithm>
