@@ -38,7 +38,7 @@ void agregarLibro(Libro*& lista) {   //se asume q es entero int &lista, puntero 
     cout<<"Ingrese el genero del libro: " << endl; //pide ususario el genero
     getline(cin, nuevoLibro->genero); 
 
-    nuevoLibro->siguiente = lista; //actualiza el nuevo libro a lista
+    
     lista=nuevoLibro;
 
     cout<< "Libro agregado correctamente "<<endl;
