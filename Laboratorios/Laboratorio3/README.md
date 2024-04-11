@@ -24,6 +24,7 @@ Seleccina su opcion:
 1. Agregar un libro
 2. Mostrar todos los libros
 3. Salir
+   
 1
 
 Ingrese el titulo del libro: 
@@ -38,6 +39,7 @@ Seleccina su opcion:
 1. Agregar un libro
 2. Mostrar todos los libros
 3. Salir
+   
 2
 
 Lista de libros: 
@@ -49,5 +51,6 @@ Seleccina su opcion:
 1. Agregar un libro
 2. Mostrar todos los libros
 3. Salir
+   
 3
 Saliendo del programa...
