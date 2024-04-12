@@ -1,6 +1,6 @@
 //Tarea 3 Evelyn F. B82870
 /**
- * @file funciones.cpp
+ * @file principal2.cpp
  * 
  * @author Evelyn Feng
  * @date 12/4/24
@@ -17,17 +17,24 @@ using namespace std;
 #include "agenda.hpp"
 #include "contacto.hpp"
 
-enum opciones { /**< Estas opciones son las que va a seleccionar el usuario en el menu */
-    AGREGAR = 1, /**< Opción para agregar un nuevo contacto */
-    OBTENER, /**< Opción para obtener el número de teléfono de un contacto */
-    ELIMINAR_LISTA, /**< Opción para eliminar un contacto de la memoria */
-    ELIMINAR_TABLA, /**< Opción para eliminar un contacto del Cloud */
-    MOSTRAR_LISTA, /**< Opción para mostrar todos los contactos de la lista enlazada */
-    MOSTRAR_TABLA, /**< Opción para mostrar todos los contactos del Cloud */
-    SALIR, /**< Opción para salir del programa */
-    OPCIONES_MAX /**< Número máximo de opciones */
+/**
+ * @brief Enumeración de opciones para el menú de la agenda.
+ */
+enum opciones {
+    AGREGAR = 1,        /**< Opción para agregar un nuevo contacto */
+    OBTENER,            /**< Opción para obtener el número de teléfono de un contacto */
+    ELIMINAR_LISTA,     /**< Opción para eliminar un contacto de la memoria */
+    ELIMINAR_TABLA,     /**< Opción para eliminar un contacto del Cloud */
+    MOSTRAR_LISTA,      /**< Opción para mostrar todos los contactos de la lista enlazada */
+    MOSTRAR_TABLA,      /**< Opción para mostrar todos los contactos del Cloud */
+    SALIR,              /**< Opción para salir del programa */
+    OPCIONES_MAX        /**< Número máximo de opciones */
 };
 
+/**
+ * @brief Función principal que ejecuta el programa.
+ * @return Devuelve 0 si el programa finaliza correctamente.
+ */
 int main() {
     Agenda agenda;
     agenda.agregar("Juan Gonzales", "8234-1234");
@@ -61,7 +68,7 @@ int main() {
                 std::cout << "\nIngrese el nombre del contacto: ";
                 std::cin.ignore(); 
                 std::getline(std::cin, nombre);
-                std::cout << "Numero de telefono: " << agenda.obtener(nombre) << endl;
+                std::cout << "Numero de telefono: " << agenda.obtener(nombre) << std::endl;
                 break;
             case ELIMINAR_LISTA:
                 std::cout << "\nIngrese el nombre del contacto a eliminar: ";
