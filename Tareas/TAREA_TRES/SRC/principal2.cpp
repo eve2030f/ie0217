@@ -1,18 +1,31 @@
 //Tarea 3 Evelyn F. B82870
+/**
+ * @file funciones.cpp
+ * 
+ * @author Evelyn Feng
+ * @date 12/4/24
+ * @license MIT License
+ * Este programa está sujeto a los términos y condiciones de la licencia resente en el archivo 'licencia.txt'.
+ */
+
+/**
+ * @brief Esta es la funcion principal que despliega el menu.
+ */
+
 #include <iostream>
 using namespace std;
 #include "agenda.hpp"
 #include "contacto.hpp"
 
-enum opciones{ // CREA ENUM PARA USAR EN VEZ DE NUMEROS EN EL CASE
-    AGREGAR = 1,
-    OBTENER,
-    ELIMINAR_LISTA,
-    ELIMINAR_TABLA,
-    MOSTRAR_LISTA,
-    MOSTRAR_TABLA,
-    SALIR,
-    OPCIONES_MAX // no se utiliza, el ulitmo miembro es usualmente el maximo para saber cuantas opciones tiene
+enum opciones { /**< Estas opciones son las que va a seleccionar el usuario en el menu */
+    AGREGAR = 1, /**< Opción para agregar un nuevo contacto */
+    OBTENER, /**< Opción para obtener el número de teléfono de un contacto */
+    ELIMINAR_LISTA, /**< Opción para eliminar un contacto de la memoria */
+    ELIMINAR_TABLA, /**< Opción para eliminar un contacto del Cloud */
+    MOSTRAR_LISTA, /**< Opción para mostrar todos los contactos de la lista enlazada */
+    MOSTRAR_TABLA, /**< Opción para mostrar todos los contactos del Cloud */
+    SALIR, /**< Opción para salir del programa */
+    OPCIONES_MAX /**< Número máximo de opciones */
 };
 
 int main() {
@@ -24,7 +37,7 @@ int main() {
     int opcion;
 
     while (true) {
-        std::cout << "\nMenu:\n";
+        std::cout << "\nMenu:\n"; /**< Menu con 7 opciones */
         std::cout << "1. Agregar contacto\n";
         std::cout << "2. Obtener numero de telefono\n";
         std::cout << "3. Eliminar contacto de la memoria\n";
@@ -38,8 +51,8 @@ int main() {
        switch (opcion) {
             case AGREGAR:
                 std::cout << "\nIngrese el nombre del contacto: ";
-                std::cin.ignore(); // Limpiar el buffer del teclado
-                std::getline(std::cin, nombre); // Leer toda la línea de entrada con espacios, para poner nombre y apellido
+                std::cin.ignore(); /**< Limpia el buffer del teclado */
+                std::getline(std::cin, nombre); /**< Leer toda la línea de entrada con espacios, para poner nombre y apellido*/
                 std::cout << "Ingrese el numero de telefono: ";
                 std::cin >> telefono;
                 agenda.agregar(nombre, telefono);
