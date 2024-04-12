@@ -32,7 +32,7 @@ Menu:
 7. Salir
 Selecciona una opcion: //(Acá debe escribir un número del 1 al 7 dependiendo de la acción que desea realizar)
 ````
-Selecciona **1.**
+### Selecciona **1.**
 
 Le pedirá un nombre y al darle ENTER le pedira el número de teléfono a agregar.
 
@@ -44,27 +44,27 @@ Ingrese el numero de telefono: 2222-2222
 Contacto insertado correctamente.
 ````
 
-Selecciona **2.**
+### Selecciona **2.**
 
 Se utiliza para buscar un número según el nombre. Se le pide un nombre completo y si existe el contacto se le despliega el número.
 
-Selecciona **3.**
+### Selecciona **3.**
 
 Elimina el contacto de almacenamiento de la memoria o de la memoria dinámica.
 
-Selecciona **4.**
+### Selecciona **4.**
 
 Elimina el contacto del Hash Table o Cloud. 
 
-Selecciona **5.**
+### Selecciona **5.**
 
 Muestra los contactos presentes en el almacenamiento de la memoria o de la memoria dinámica. Estos sí salen ordenados alfabéticamente.
 
-Selecciona **6.**
+### Selecciona **6.**
 
 Muestra los contactos presentes en el Hash Table o Cloud. Cabe destacar que, este print de la tabla hash es para proporcionar acceso rapido a los datos, por eso no salen ordenados alfabéticaente.
 
-Selecciona **7.**
+### Selecciona **7.**
 
 Sale del Menu.
 
