@@ -1,8 +1,8 @@
 //Tarea 3 Evelyn F. B82870
-
-#include "funciones.hpp"
-#include "contacto.hpp"
 #include <iostream>
+using namespace std;
+#include "agenda.hpp"
+#include "contacto.hpp"
 
 enum opciones{ // CREA ENUM PARA USAR EN VEZ DE NUMEROS EN EL CASE
     AGREGAR = 1,
@@ -17,6 +17,9 @@ enum opciones{ // CREA ENUM PARA USAR EN VEZ DE NUMEROS EN EL CASE
 
 int main() {
     Agenda agenda;
+    agenda.agregar("Juan Gonzales", "8234-1234");
+    agenda.agregar("Maria Flores", "8855-5678");
+    agenda.agregar("Pedro Calderon", "6012-9876");
     std::string nombre, telefono;
     int opcion;
 
@@ -32,19 +35,32 @@ int main() {
         std::cout << "Seleccione una opcion: ";
         std::cin >> opcion;
 
-        switch (opcion) {
+       switch (opcion) {
             case AGREGAR:
-
-                agenda.agregar();
+                std::cout << "\nIngrese el nombre del contacto: ";
+                std::cin.ignore(); // Limpiar el buffer del teclado
+                std::getline(std::cin, nombre); // Leer toda la línea de entrada con espacios, para poner nombre y apellido
+                std::cout << "Ingrese el numero de telefono: ";
+                std::cin >> telefono;
+                agenda.agregar(nombre, telefono);
                 break;
             case OBTENER:
-                agenda.obtener();
+                std::cout << "\nIngrese el nombre del contacto: ";
+                std::cin.ignore(); 
+                std::getline(std::cin, nombre);
+                std::cout << "Numero de telefono: " << agenda.obtener(nombre) << endl;
                 break;
             case ELIMINAR_LISTA:
-                agenda.eliminar();
+                std::cout << "\nIngrese el nombre del contacto a eliminar: ";
+                std::cin.ignore(); 
+                std::getline(std::cin, nombre);
+                agenda.eliminar(nombre);
                 break;
             case ELIMINAR_TABLA:
-                agenda.eliminar2();
+                std::cout << "\nIngrese el nombre del contacto a eliminar: ";
+                std::cin.ignore(); 
+                std::getline(std::cin, nombre);
+                agenda.eliminar2(nombre);
                 break;
             case MOSTRAR_LISTA:
                 agenda.mostrarListaEnlazada();

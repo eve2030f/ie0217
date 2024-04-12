@@ -5,15 +5,13 @@
 
 #include <string>
 
-// Definición de la clase Contacto
 class Contacto {
 public:
     std::string nombre;
     std::string telefono;
-    Contacto* siguiente; // Puntero al siguiente contacto en la lista enlazada
+    Contacto* siguiente;
 
-    // Constructor que inicializa los datos del contacto
     Contacto(const std::string& nombre, const std::string& telefono);
 };
 
-#endif
+#endif /* CONTACTO_HPP */
