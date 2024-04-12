@@ -1,7 +1,7 @@
 //Laboratorio 3 B82870 Evelyn Feng 
 
-#ifndef PRINCIPAL_HPP// SI LLEGA Y NO ENCUENTRA EL DOC SE BRINCA EL DEF
-#define PRINCIPAL_HPP 
+#ifndef FUNCIONES_HPP// SI LLEGA Y NO ENCUENTRA EL DOC SE BRINCA EL DEF
+#define FUNCIONES_HPP 
 
 #include "libro.hpp"
 
