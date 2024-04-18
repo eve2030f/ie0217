@@ -1,11 +1,20 @@
 //Laboratorio 4 B82870 Evelyn Feng 
 #include "funciones.hpp"
 
+#include <iostream> //para imprimir
+#include <cstdlib>
+#include <ctime> //para llevar el tiempo
+#include <chrono>
+
+
+using namespace std;
+using namespace std::chrono; //proporciona facilidades para emdir el tiempo
+
+
 //funciones
 
 // https://codeshare.io/ie0217
 // se copia y pega el codigo del profe
-
 
 
 //ordena array con Bubble Sort
