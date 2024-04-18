@@ -15,7 +15,7 @@ I Semestre 2024
 
 Para ejecutar los códigos del previo escriba en su VS Code:
 ```
-g++ -o sorting.exe ./principal.cpp ./funciones.cpp
+g++ -o sorting.exe ./main.cpp ./funciones.cpp
 
 .\sorting.exe 
 ````
