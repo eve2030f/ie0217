@@ -111,3 +111,19 @@ void measuringSortingTime(void(*sortingAlgorithm)(int[],int), int arr[], int n, 
     cout <<"Tiempo de "<< algorithmName << ": " << duration.count()<< " microsegundos"<< endl;
 
 } 
+
+
+//aca tambien se cambia n por low y high para q este declarado, agrega un int mas en puntero tambien
+//funcion para recibir el de quick sort time
+//recibe parametro tipo void que se casteo como puntero de un algoritmo de orden. y recibe dos parametros un arreglo de enteros y un entero 
+//recibe el puntero a una funcion
+
+void measuringQuickSortingTime(void(*sortingAlgorithm)(int[],int, int), int arr[], int low, int high, string algorithmName){
+    high_resolution_clock::time_point start = high_resolution_clock::now(); 
+    sortingAlgorithm(arr, low, high);  //se agrega quick sort time y se pone low y high en vez de n
+    high_resolution_clock::time_point stop = high_resolution_clock::now();
+    std::chrono::microseconds duration = std::chrono::duration_cast<std::chrono::microseconds>(stop-start);
+
+    cout <<"Tiempo de "<< algorithmName << ": " << duration.count()<< " microsegundos"<< endl;
+}
+

@@ -17,5 +17,6 @@ void quickSort(int arr[], int low, int high);
 void generateRandomArray(int arr[], int n);
 //mide el tiempo
 void measuringSortingTime(void(*sortingAlgorithm)(int[], int), int arr[], int n, std::string algorithmName);
+void measuringQuickSortingTime(void(*sortingAlgorithm)(int[],int, int), int arr[], int low, int high,  std::string algorithmName);
 
 #endif 

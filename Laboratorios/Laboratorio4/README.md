@@ -24,3 +24,10 @@ g++ -o sorting.exe ./principal.cpp ./funciones.cpp
 Tiempo de Bubble Sort: 1067580 microsegundos
 Tiempo de Selection Sort: 468248 microsegundos
 Tiempo de Insertion Sort: 297 microsegundos
+
+## Resultado 2 con el Quick Sort
+
+Tiempo de Bubble Sort: 914845 microsegundos
+Tiempo de Selection Sort: 452932 microsegundos
+Tiempo de Insertion Sort: 574096 microsegundos
+Tiempo de Quick Sort: 2531 microsegundos
