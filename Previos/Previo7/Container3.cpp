@@ -17,3 +17,4 @@ int main (){
     return 0;
 }
 //Resultado
+//Los numeros son: 70, 10, 100, 1,
