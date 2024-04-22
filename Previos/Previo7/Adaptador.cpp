@@ -19,7 +19,7 @@ int main (){
     //el stack este vacio
 
     while(!numbers.empty()){
-        //print top element
+        //print top element, valor de arriba
 
         cout<< numbers.top()<< ", ";
 
