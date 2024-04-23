@@ -35,3 +35,5 @@ Para ejecutar los códigos del previo escriba en su VS Code:
 |                           | ./sorting.exe                                     |
 | IteradorBidireccional.cpp | g++ -o sorting.exe ./IteradorBidireccional.cpp    |
 |                           | ./sorting.exe                                     |
+| AlgoritmosSTL.cpp         | g++ -o sorting.exe ./AlgoritmosSTL.cpp            |
+|                           | ./sorting.exe                                     |
