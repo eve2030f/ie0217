@@ -22,10 +22,16 @@ g++ -o lab5.exe ./main.cpp ./funciones.cpp
 ## Resultado
 
 Orgullo y prejuicio, Jane Austen, 1813 
+
 Cumbres Borrascosas, Emily Bronte, 1847
+
 Ulises, James Joyce, 1922
+
 1984, George Orwell, 1949
+
 El señor de los anillos, J.R.R. Tolkien, 1954
+
 Cien años de soledad, Gabriel García Márquez, 1967
+
 Libro encontrado: 1984
 
