@@ -72,7 +72,7 @@ int main(){
        
 
     //crea vector de enteros
-        std::vector<int> emptyData;
+        std::vector<int> emptyData;  //ingresa lista vacia para porbar catch
         Statistics<int> statsEmpty  (emptyData); 
     } 
     
