@@ -4,25 +4,32 @@
 #include <cmath>
 #include <stdexcept>
 
-template <typename T> //uso de template
-//clase estadistica
+//crea template
+template <typename T> 
+
+//clase estadistica para manejar distintos tipos de datos
 class Statistics { 
     public:
-    //constructor: const a elementos que no vamos a modificar. Recibe el data.
+
+    //constructor: const -> a elementos que no vamos a modificar. Recibe el data.
         Statistics(const std::vector<T>&data) : data(data){ 
-            //vector vacio sale argumento invalido como excepcion
+
+            //verifica si esta vacio: argumento invalido como excepcion
             if(data.empty()){
                 throw std::invalid_argument("La lista de datos debe contener elementos"); //uso de excepcion
             }
         } 
+
         //metodo de promedio de elementos
         double mean() const{
             T sum = 0;
             for (const T& value : data){
                 sum += value;
             }
-        return static_cast<double>(sum)/ data.size();// viene todo parametrizado
+        return static_cast<double>(sum)/ data.size(); //retorna el promedio
+        //viene todo parametrizado, suma elementos y lo divide entre la cantidad de elementos
         }
+
         //metodo de desviacion estandar
         double standardDeviation() const{
             double meanValue = mean();// se calcula en el metodo anterior y aca lo llama
@@ -33,14 +40,17 @@ class Statistics {
             }
             return std::sqrt(sumSquares/data.size()); //retorna la formula de la desvest
         }
+
+
     private: //elemento privado dentro de la claseo clases amigas, variable T priv
         std::vector<T> data;
 
 };
 
 int main(){
-    //se debe identficar con un catch diferente cada error
+    //se deberia identficar con un catch diferente cada error
     try{
+
     //carga intData
         std::vector<int> intData={1,2,3,4,5};
         //instancia con template
@@ -64,7 +74,9 @@ int main(){
     //crea vector de enteros
         std::vector<int> emptyData;
         Statistics<int> statsEmpty  (emptyData); 
-    } catch(const std::invalid_argument& e) {
+    } 
+    
+    catch(const std::invalid_argument& e) {
         std::cerr << "Excepcion encontrada: "<<e.what()<<std::endl; //el what funciona solo si en catch llama el invalid argument
     }
 
