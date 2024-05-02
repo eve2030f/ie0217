@@ -22,8 +22,12 @@ g++ -o ./lab6.exe ./main.cpp
 ## Resultado
 
 Media de intData: 3
+
 Desviacion estandar de intData: 0.816497
+
 Media de doubleData: 3
+
 Desviacion estandar de doubleData: 0.816497
+
 Excepcion encontrada: La lista de datos debe contener elementos
 
