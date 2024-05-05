@@ -3,8 +3,8 @@
 #include <iostream>
 #include <vector>
 #include <stdexcept>
-#include <cctype> // Para la función isdigit
-#include <random> // Para generación de números aleatorios
+#include <cctype> // Para la funcion isdigit
+#include <random> // Para generacion de numeros aleatorios
 #include <chrono> // Para semilla aleatoria basada en el tiempo actual
 
 // Clase para validar la entrada del usuario
@@ -12,14 +12,14 @@ class ValidacionDeEntrada {
 public:
     static void validarDimension(int tamano) {
         if (tamano <= 0) {
-            throw std::invalid_argument("Las dimensiones deben ser números positivos mayores a 0");
+            throw std::invalid_argument("Las dimensiones deben ser numeros positivos mayores a 0");
         }
     }
 
     static void validarNumero(const std::string& str) {
         for (char c : str) {
             if (!std::isdigit(c)) {
-                throw std::invalid_argument("Debe ingresar solo números. Revisar la cantidad de valores digitados.");
+                throw std::invalid_argument("Debe ingresar solo numeros. Revisar la cantidad de valores digitados.");
             }
         }
     }
@@ -30,8 +30,8 @@ template<typename T>
 // Crear la clase matriz que cada una tiene columnas y filas
 class Matriz {
 private:
-    int filas; // Número de filas
-    int columnas; // Número de columnas
+    int filas; // Numero de filas
+    int columnas; // Numero de columnas
     std::vector<std::vector<T>> datos; // Datos de la matriz
 
 public:
@@ -98,9 +98,9 @@ public:
         unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
         std::default_random_engine generator(seed);
 
-        // Distribución de números aleatorios
+        // Distribucion de numeros aleatorios
 
-            std::uniform_real_distribution<float> distribution(1.0f, 100.0f);
+            std::uniform_real_distribution<std::complex> distribution(1.0f, 100.0f);
             for (int i = 0; i < filas; ++i) {
                 for (int j = 0; j < columnas; ++j) {
                     datos[i][j] = distribution(generator);
@@ -137,7 +137,7 @@ public:
 
     Matriz<T> operator*(const Matriz<T>& otra) const {
         if (columnas != otra.filas) {
-            throw std::invalid_argument("El número de columnas de la primera matriz no coincide con el número de filas de la segunda matriz");
+            throw std::invalid_argument("El numero de columnas de la primera matriz no coincide con el numero de filas de la segunda matriz");
         }
         Matriz<T> resultado(filas, otra.columnas);
         for (int i = 0; i < filas; ++i) {
@@ -151,7 +151,7 @@ public:
         return resultado;
     }
 
-    // Función para sumar dos matrices
+    // Funcion para sumar dos matrices
     void sumarMatrices(const Matriz<T>& otra) {
         try {
             *this = *this + otra;
@@ -162,7 +162,7 @@ public:
         }
     }
 
-    // Función para restar dos matrices
+    // Funcion para restar dos matrices
     void restarMatrices(const Matriz<T>& otra) {
         try {
             *this = *this - otra;
@@ -173,7 +173,7 @@ public:
         }
     }
 
-    // Función para multiplicar dos matrices
+    // Funcion para multiplicar dos matrices
     void multiplicarMatrices(const Matriz<T>& otra) {
         try {
             *this = *this * otra;
@@ -198,16 +198,19 @@ int main() {
     Matriz<float> matrizFloatA(0, 0);
     Matriz<float> matrizFloatB(0, 0);
 
-    // Menú principal
+    Matriz<std::complex> matrizComplejaA(0, 0);
+    Matriz<std::complex> matrizComplejaB(0, 0);
+
+    // Menu principal
     while (true) {
         std::cout << "\n--- Menu ---\n";
         std::cout << "1. Seleccionar tipo de variable\n";
-        std::cout << "2. Ingresar tamaño de matrices y valores\n";
+        std::cout << "2. Ingresar tamano de matrices y valores\n";
         std::cout << "3. Generar datos aleatorios para las matrices\n";
         std::cout << "4. Mostrar matrices ingresadas\n";
         std::cout << "5. Realizar operaciones\n";
         std::cout << "6. Finalizar programa\n";
-        std::cout << "Ingrese su opción: ";
+        std::cout << "Ingrese su opcion: ";
 
         int opcion;
         std::cin >> opcion;
@@ -217,6 +220,7 @@ int main() {
                 std::cout << "Seleccione el tipo de variable:\n";
                 std::cout << "1. Entero\n";
                 std::cout << "2. Flotante\n";
+                std::cout << "3. Complejo\n";
                 std::cin >> tipoMatriz;
                 break;
             }
@@ -225,9 +229,9 @@ int main() {
                     std::cerr << "Primero seleccione el tipo de variable.\n";
                     break;
                 }
-                std::cout << "Ingrese el número de filas: ";
+                std::cout << "Ingrese el numero de filas: ";
                 std::cin >> input_filas;
-                std::cout << "Ingrese el número de columnas: ";
+                std::cout << "Ingrese el numero de columnas: ";
                 std::cin >> input_columnas;
 
                 try {
@@ -248,6 +252,9 @@ int main() {
                 } else if (tipoMatriz == 2) {
                     matrizFloatA = Matriz<float>(filas, columnas);
                     matrizFloatB = Matriz<float>(filas, columnas);
+                } else if (tipoMatriz == 3) {
+                    matrizComplejaA = Matriz<std::complex>(filas, columnas);
+                    matrizComplejatB = Matriz<std::complex>(filas, columnas);
                 } else {
                     std::cerr << "Tipo de variable no válido\n";
                 }
@@ -259,7 +266,12 @@ int main() {
                     } else if (tipoMatriz == 2) {
                         matrizFloatA.llenarMatriz("A");
                         matrizFloatB.llenarMatriz("B");
+                    } else if (tipoMatriz == 3) {
+                        matrizComplejaA.llenarMatriz("A");
+                        matrizComplejaB.llenarMatriz("B");
                     }
+                    }
+
                 } catch (const std::invalid_argument& e) {
                     std::cerr << "Error: " << e.what() << std::endl;
                 }
@@ -271,9 +283,9 @@ int main() {
                     std::cerr << "Primero seleccione el tipo de variable.\n";
                     break;
                 }
-                std::cout << "Ingrese el número de filas: ";
+                std::cout << "Ingrese el numero de filas: ";
                 std::cin >> input_filas;
-                std::cout << "Ingrese el número de columnas: ";
+                std::cout << "Ingrese el numero de columnas: ";
                 std::cin >> input_columnas;
                 try {
                     ValidacionDeEntrada::validarNumero(input_filas);
@@ -293,6 +305,9 @@ int main() {
                 } else if (tipoMatriz == 2) {
                     matrizFloatA = Matriz<float>(filas, columnas);
                     matrizFloatB = Matriz<float>(filas, columnas);
+                } else if (tipoMatriz == 3) {
+                    matrizComplejaA = Matriz<std::complex>(filas, columnas);
+                    matrizComplejaB = Matriz<std::complex>(filas, columnas);
                 } else {
                     std::cerr << "Tipo de variable no válido\n";
                 }
@@ -304,6 +319,9 @@ int main() {
                     } else if (tipoMatriz == 2) {
                         matrizFloatA.llenarMatrizAleatoria();
                         matrizFloatB.llenarMatrizAleatoria();
+                    } else if (tipoMatriz == 3) {
+                        matrizComplejaA.llenarMatrizAleatoria();
+                        matrizComplejaB.llenarMatrizAleatoria();
                     } else {
                         std::cerr << "Tipo de variable no válido\n";
                     }
@@ -328,6 +346,11 @@ int main() {
                     matrizFloatA.mostrarMatriz();
                     std::cout << "Matriz B:\n";
                     matrizFloatB.mostrarMatriz();
+                } else if (tipoMatriz == 2) {
+                    std::cout << "Matriz A:\n";
+                    matrizComplejaA.mostrarMatriz();
+                    std::cout << "Matriz B:\n";
+                    matrizCompleaB.mostrarMatriz();
                 } else {
                     std::cerr << "Tipo de variable no válido\n";
                 }
@@ -342,7 +365,7 @@ int main() {
                 std::cout << "1. Sumar matrices\n";
                 std::cout << "2. Restar matrices\n";
                 std::cout << "3. Multiplicar matrices\n";
-                std::cout << "Ingrese su opción: ";
+                std::cout << "Ingrese su opcion: ";
 
                 int operacion;
                 std::cin >> operacion;
@@ -353,6 +376,8 @@ int main() {
                             matrizIntA.sumarMatrices(matrizIntB);
                         } else if (tipoMatriz == 2) {
                             matrizFloatA.sumarMatrices(matrizFloatB);
+                        } else if (tipoMatriz == 3) {
+                            matrizComplejaA.sumarMatrices(matrizComplejaB);
                         }
                         break;
                     }
@@ -362,6 +387,8 @@ int main() {
                         } else if (tipoMatriz == 2) {
                             matrizFloatA.restarMatrices(matrizFloatB);
                         }
+                         else if (tipoMatriz == 3) {
+                            matrizComplejaA.restarMatrices(matrizComplejaB);
                         break;
                     }
                     case 3: {
@@ -369,11 +396,14 @@ int main() {
                             matrizIntA.multiplicarMatrices(matrizIntB);
                         } else if (tipoMatriz == 2) {
                             matrizFloatA.multiplicarMatrices(matrizFloatB);
-                        }
+                        
+                        } else if (tipoMatriz == 3) {
+                            matrizComplejaA.multiplicarMatrices(matrizComplejaB);
+                        
                         break;
                     }
                     default:
-                        std::cerr << "Opción no válida\n";
+                        std::cerr << "Opcion no válida\n";
                         break;
                 }
                 break;
@@ -383,9 +413,10 @@ int main() {
                 return 0;
             }
             default:
-                std::cerr << "Opción no válida.\n";
+                std::cerr << "Opcion no válida.\n";
                 break;
         }
     }
     return 0;
+}
 }
