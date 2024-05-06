@@ -50,6 +50,11 @@ In file included from ./main1.cpp:7:
 
 Sin embargo, se puede ejecutar el codigo completo de la siguiente manera:
 
+````
+g++ -o tarea4.exe ./main.cpp
+./tarea4
+o bien,  ./tarea4.exe
+````
 
 
 El resultado del menu junto con un ejemplo de la ejecución sería el siguiente:
@@ -208,6 +213,7 @@ Ingrese su opcion: 6
 Saliendo del programa.
 
 ````
+
 ## Link de Doxyfile por medio del Netlify:
 
 https://663847b5e4a6425b54d2a5c0--rad-monstera-5eee87.netlify.app/
