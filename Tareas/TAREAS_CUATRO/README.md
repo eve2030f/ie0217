@@ -13,12 +13,45 @@ I Semestre 2024
 
 ## Parte Práctica - Calculadora de matrices
 
-Para ejecutar el código siga las siguientes instrucciones digitando:
+Para ejecutar el código escriba en la terminal:
+
+````
+g++ -o tarea4.exe ./main.cpp
+./tarea4.exe
+
+````
+
+
+Se dividió el código en validacion.cpp, validacion.hpp, matriz.hpp, matriz.cpp y main1.cpp pero a pesar de los intentos y arreglos en el código seguía saliendo un error.
 
 ````
 g++ -o ./tarea4.exe ./main1.cpp ./validacion.cpp ./matriz.cpp
 ./tarea4.exe
 ````
+Error 
+````
+In file included from ./main1.cpp:7:
+./matriz.cpp: In instantiation of 'void Matriz<T>::llenarMatrizAleatoria2() [with T = int]':
+./matriz.cpp:110:16:   required from here
+./matriz.cpp:100:32: error: cannot convert 'std::complex<float>' to '__gnu_cxx::__alloc_traits<std::allocator<int>, int>::value_type' {aka 'int'} in assignment
+  100 |             datos[i][j] = std::complex<float>(realPart, imagPart);
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                |
+      |                                std::complex<float>
+./matriz.cpp: In instantiation of 'void Matriz<T>::llenarMatrizAleatoria2() [with T = float]':
+./matriz.cpp:111:16:   required from here
+./matriz.cpp:100:32: error: cannot convert 'std::complex<float>' to '__gnu_cxx::__alloc_traits<std::allocator<float>, float>::value_type' {aka 'float'} in assignment
+  100 |             datos[i][j] = std::complex<float>(realPart, imagPart);
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                |
+      |                                std::complex<float>
+
+````
+
+Sin embargo, se puede ejecutar el codigo completo de la siguiente manera:
+
+
+
 El resultado del menu junto con un ejemplo de la ejecución sería el siguiente:
 1. Seleccione el tipo de variable, de lo contrario, si comienza con la opción 2 le va a tirar un error de que debe seleccionar el tipo de variable antes de iniciar. 
 ````
@@ -177,8 +210,151 @@ Saliendo del programa.
 ````
 ## Link de Doxyfile por medio del Netlify:
 
-
-
+https://663847b5e4a6425b54d2a5c0--rad-monstera-5eee87.netlify.app/
 
 
 ## Parte Teórica
+
+### 1. Templates:
+
+1. Definición de Templates: 
+
+Los templates en C++ son una característica que permite escribir código genérico que puede trabajar con cualquier tipo de dato y estructura. Esto se logra mediante la definición de funciones o clases que contienen parámetros de tipo genérico, los cuales se especifican cuando se utilizan. Por ejemplo:
+
+````
+template<typename T>
+T suma(T a, T b) {
+    return a + b;
+}
+
+int main() {
+    int resultado1 = suma(5, 3);        // Llama a la función suma<int>(5, 3)
+    double resultado2 = suma(3.5, 2.1); // Llama a la función suma<double>(3.5, 2.1)
+    return 0;
+}
+````
+
+2. Sobrecarga de Plantillas: 
+
+La sobrecarga de funciones con plantillas en C++ se realiza definiendo múltiplas versiones de la función con los mismos nombres pero con diferentes tipos de parámetros. El compilador seleccionará automáticamente la versión que mejor coincida con los argumentos proporcionados. Por ejemplo:
+````
+template<typename T>
+T suma(T a, T b) {
+    return a + b;
+}
+
+template<typename T>
+T suma(T a, T b, T c) {
+    return a + b + c;
+}
+
+int main() {
+    int resultado1 = suma(5, 3);         // Llama a la función suma<int>(5, 3)
+    double resultado2 = suma(3.5, 2.1);  // Llama a la función suma<double>(3.5, 2.1)
+    int resultado3 = suma(1, 2, 3);      // Llama a la función suma<int>(1, 2, 3)
+    return 0;
+}
+````
+3. Plantillas de Clases: 
+
+Las plantillas también se pueden utilizar en la definición de clases en C++. Esto permite definir clases que trabajen con tipos de datos genéricos. Por ejemplo:
+````
+template<typename T>
+class Contenedor {
+private:
+    T dato;
+public:
+    Contenedor(T valor) : dato(valor) {}
+    T obtenerDato() const { return dato; }
+};
+
+int main() {
+    Contenedor<int> cont1(5);       // Instancia de Contenedor para int
+    Contenedor<double> cont2(3.14); // Instancia de Contenedor para double
+    return 0;
+}
+````
+
+### 2. Excepciones:
+4. Manejo de Excepciones: 
+
+Los bloques **try, catch y throw** se utilizan para manejar excepciones en C++.
+try: Se utiliza para envolver el código que puede lanzar una excepción.
+catch: Se utiliza para manejar la excepción lanzada en el bloque try.
+throw: Se utiliza para lanzar una excepción explícitamente.
+Ejemplo:
+````
+try {
+    // Código que puede lanzar una excepción
+    throw std::runtime_error("Ocurrió un error");
+} catch (const std::runtime_error& e) {
+    // Manejo de la excepción
+    std::cerr << "Error: " << e.what() << std::endl;
+}
+````
+5. Excepciones Estándar: 
+
+Algunas excepciones estándar proporcionadas por C++ son **std::runtime_error, std::logic_error y std::invalid_argument.**
+
+-std::runtime_error: Se utiliza para errores que ocurren durante la ejecución del programa.
+
+-std::logic_error: Se utiliza para errores de lógica en el programa.
+
+-std::invalid_argument: Se utiliza para indicar un argumento inválido pasado a una función.
+````
+void dividir(int a, int b) {
+    if (b == 0) {
+        throw std::invalid_argument("Divisor no puede ser cero");
+    }
+    std::cout << "Resultado: " << a / b << std::endl;
+}
+````
+
+6. Política de Manejo de Excepciones: 
+
+Una política de manejo de excepciones se refiere a la forma en que un programa maneja las excepciones. Es importante considerarla al diseñar software para garantizar un manejo adecuado de errores y para que el programa sea robusto y pueda recuperarse de situaciones inesperadas.
+
+7. Noexcept: 
+
+La palabra clave noexcept se utiliza en C++ para especificar que una función no lanzará ninguna excepción. Esto puede ayudar al compilador a realizar optimizaciones y también proporciona información útil al usuario de la función.
+
+8. Diferencia entre std::logic_error y std::runtime_error:
+
+ std::logic_error se utiliza para errores de lógica en el programa, mientras que std::runtime_error se utiliza para errores que ocurren durante la ejecución del programa.
+
+9. Excepción No Capturada: 
+
+Cuando una excepción no es capturada, el programa termina abruptamente y puede imprimir un mensaje de error en la consola, indicando qué excepción no fue manejada. Esto puede resultar en un comportamiento no deseado o en una terminación inesperada del programa.
+
+### 3. STL (Standard Template Library):
+
+10. Contenedores STL: 
+
+Algunos contenedores de la STL son std::vector, std::list, std::map, std::set y std::queue. Cada uno de ellos tiene sus propias características y es apropiado para diferentes situaciones.
+
+-std::vector: Se utiliza cuando se necesita una colección de elementos que puede crecer o reducir de tamaño de manera eficiente.
+
+-std::list: Se utiliza cuando se necesita una lista enlazada doblemente conectada.
+
+-std::map: Se utiliza para asociar claves con valores únicos.
+
+-std::set: Se utiliza para almacenar elementos únicos en orden ascendente.
+
+-std::queue: Se utiliza para implementar una cola FIFO (First In First Out).
+
+11. Iteradores en STL: 
+
+Los iteradores en la STL son objetos que se utilizan para recorrer secuencias de elementos en contenedores. Se utilizan para acceder a los elementos y para realizar operaciones como inserción, eliminación y búsqueda en los contenedores.
+
+12. Algoritmos STL: 
+Algunos algoritmos de la STL son std::sort, std::find y std::transform.
+
+-std::sort: Se utiliza para ordenar los elementos en un contenedor.
+
+-std::find: Se utiliza para buscar un elemento en un contenedor.
+
+-std::transform: Se utiliza para aplicar una operación a cada elemento en un rango y almacenar el resultado en otro rango.
+
+13. Algoritmos Personalizados: 
+
+Se pueden utilizar algoritmos personalizados con la STL definiendo funciones o functors que implementen el comportamiento deseado y luego pasándolos como argumentos a las funciones de la STL, como std::sort o std::transform. Esto permite reutilizar código y aprovechar la flexibilidad de la STL.
