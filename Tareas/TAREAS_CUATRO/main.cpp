@@ -1,11 +1,13 @@
 //Tarea 3 Evelyn Feng Wu B82870
 // Calculadora de matrices usando templates
+
 #include <iostream>
-#include <vector>
+#include <vector> //usa biblioteca STL para almacenar coleccion de elementos
 #include <stdexcept>
 #include <cctype> // Para la funcion isdigit
 #include <random> // Para generacion de numeros aleatorios
 #include <chrono> // Para semilla aleatoria basada en el tiempo actual
+#include <complex> // Para números complejos
 
 // Clase para validar la entrada del usuario
 class ValidacionDeEntrada {
@@ -45,7 +47,7 @@ public:
 
     // Método para llenar la matriz con valores ingresados por el usuario
     void llenarMatriz(const std::string& nombreMatriz) {
-        std::cout << "Ingrese los elementos de la matriz " << nombreMatriz << " (separados por espacios): ";
+        std::cout << "Ingrese los elementos de la matriz " << nombreMatriz << " (separados por comas): ";
         std::vector<T> valores;
         valores.reserve(filas * columnas); // Reservar espacio suficiente para evitar realocaciones
 
@@ -61,19 +63,24 @@ public:
                 break;
             }
 
-            // Verificar que el siguiente caracter sea una espacio
+            // Verificar que el siguiente caracter sea una coma
             char siguienteCaracter;
             std::cin >> siguienteCaracter;
-            if (siguienteCaracter != ' ') {
-                throw std::invalid_argument("Error: Los elementos deben estar separados por espacios.");
+            if (siguienteCaracter != ',') {
+                throw std::invalid_argument("Error: Los elementos deben estar separados por comas. La dimension de elementos es incorrecta.");
             }
+       
         }
-        std::cin.ignore();
+            // Verificar si el valor ingresado no es un número
+           // if (!std::isdigit(valor)) {
+           //     throw std::invalid_argument("La cantidad de elementos ingresados no coincide con las dimensiones de la matriz.");
+           // }
+        
         // Verificar si se ingresaron suficientes elementos
         if (elementosIngresados != filas * columnas) {
-            throw std::invalid_argument("Error: Debe ingresar la cantidad correcta de elementos.");
+            throw std::invalid_argument("Error: Debe ingresar solo números.");
         }
-
+        std::cin.ignore();
         int k = 0;
         for (int i = 0; i < filas; ++i) {
             for (int j = 0; j < columnas; ++j) {
@@ -81,6 +88,7 @@ public:
             }
         }
     }
+
 
     // Método para mostrar la matriz
     void mostrarMatriz() const {
@@ -98,15 +106,34 @@ public:
         unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
         std::default_random_engine generator(seed);
 
-        // Distribucion de numeros aleatorios
+        // Distribución de números aleatorios
 
-            std::uniform_real_distribution<std::complex> distribution(1.0f, 100.0f);
+            std::uniform_real_distribution<float> distribution(1.0f, 100.0f);
             for (int i = 0; i < filas; ++i) {
                 for (int j = 0; j < columnas; ++j) {
                     datos[i][j] = distribution(generator);
                 }
             }
     }
+        // Método para llenar la matriz con valores aleatorios complejo
+void llenarMatrizAleatoria2() {
+    // Semilla aleatoria basada en el tiempo actual
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    std::default_random_engine generator(seed);
+
+    // Distribucion de numeros aleatorios para las partes real e imaginaria
+    std::uniform_real_distribution<float> realDistribution(1.0f, 100.0f);
+    std::uniform_real_distribution<float> imagDistribution(1.0f, 100.0f);
+
+    for (int i = 0; i < filas; ++i) {
+        for (int j = 0; j < columnas; ++j) {
+            float realPart = realDistribution(generator);
+            float imagPart = imagDistribution(generator);
+            datos[i][j] = std::complex<float>(realPart, imagPart);
+        }
+    }
+}
+
 
     // Operaciones con matrices
     Matriz<T> operator+(const Matriz<T>& otra) const {
@@ -198,8 +225,8 @@ int main() {
     Matriz<float> matrizFloatA(0, 0);
     Matriz<float> matrizFloatB(0, 0);
 
-    Matriz<std::complex> matrizComplejaA(0, 0);
-    Matriz<std::complex> matrizComplejaB(0, 0);
+    Matriz<std::complex<float>> matrizComplejaA(0, 0);
+    Matriz<std::complex<float>> matrizComplejaB(0, 0);
 
     // Menu principal
     while (true) {
@@ -227,8 +254,8 @@ int main() {
             case 2: {
                 if (tipoMatriz == 0) {
                     std::cerr << "Primero seleccione el tipo de variable.\n";
-                    break;
-                }
+                    break;}
+                else {
                 std::cout << "Ingrese el numero de filas: ";
                 std::cin >> input_filas;
                 std::cout << "Ingrese el numero de columnas: ";
@@ -253,8 +280,8 @@ int main() {
                     matrizFloatA = Matriz<float>(filas, columnas);
                     matrizFloatB = Matriz<float>(filas, columnas);
                 } else if (tipoMatriz == 3) {
-                    matrizComplejaA = Matriz<std::complex>(filas, columnas);
-                    matrizComplejatB = Matriz<std::complex>(filas, columnas);
+                    matrizComplejaA = Matriz<std::complex<float>>(filas, columnas);
+                    matrizComplejaB = Matriz<std::complex<float>>(filas, columnas);
                 } else {
                     std::cerr << "Tipo de variable no válido\n";
                 }
@@ -270,13 +297,13 @@ int main() {
                         matrizComplejaA.llenarMatriz("A");
                         matrizComplejaB.llenarMatriz("B");
                     }
-                    }
-
                 } catch (const std::invalid_argument& e) {
                     std::cerr << "Error: " << e.what() << std::endl;
+                    break;
                 }
-
                 break;
+                }
+                
             }
             case 3: {
                 if (tipoMatriz == 0) {
@@ -306,8 +333,8 @@ int main() {
                     matrizFloatA = Matriz<float>(filas, columnas);
                     matrizFloatB = Matriz<float>(filas, columnas);
                 } else if (tipoMatriz == 3) {
-                    matrizComplejaA = Matriz<std::complex>(filas, columnas);
-                    matrizComplejaB = Matriz<std::complex>(filas, columnas);
+                    matrizComplejaA = Matriz<std::complex<float>>(filas, columnas);
+                    matrizComplejaB = Matriz<std::complex<float>>(filas, columnas);
                 } else {
                     std::cerr << "Tipo de variable no válido\n";
                 }
@@ -320,8 +347,8 @@ int main() {
                         matrizFloatA.llenarMatrizAleatoria();
                         matrizFloatB.llenarMatrizAleatoria();
                     } else if (tipoMatriz == 3) {
-                        matrizComplejaA.llenarMatrizAleatoria();
-                        matrizComplejaB.llenarMatrizAleatoria();
+                        matrizComplejaA.llenarMatrizAleatoria2();
+                        matrizComplejaB.llenarMatrizAleatoria2();
                     } else {
                         std::cerr << "Tipo de variable no válido\n";
                     }
@@ -346,11 +373,11 @@ int main() {
                     matrizFloatA.mostrarMatriz();
                     std::cout << "Matriz B:\n";
                     matrizFloatB.mostrarMatriz();
-                } else if (tipoMatriz == 2) {
+                } else if (tipoMatriz == 3) {
                     std::cout << "Matriz A:\n";
                     matrizComplejaA.mostrarMatriz();
                     std::cout << "Matriz B:\n";
-                    matrizCompleaB.mostrarMatriz();
+                    matrizComplejaB.mostrarMatriz();
                 } else {
                     std::cerr << "Tipo de variable no válido\n";
                 }
@@ -386,9 +413,9 @@ int main() {
                             matrizIntA.restarMatrices(matrizIntB);
                         } else if (tipoMatriz == 2) {
                             matrizFloatA.restarMatrices(matrizFloatB);
-                        }
-                         else if (tipoMatriz == 3) {
+                        } else if (tipoMatriz == 3) {
                             matrizComplejaA.restarMatrices(matrizComplejaB);
+                        }
                         break;
                     }
                     case 3: {
@@ -396,14 +423,14 @@ int main() {
                             matrizIntA.multiplicarMatrices(matrizIntB);
                         } else if (tipoMatriz == 2) {
                             matrizFloatA.multiplicarMatrices(matrizFloatB);
-                        
                         } else if (tipoMatriz == 3) {
                             matrizComplejaA.multiplicarMatrices(matrizComplejaB);
-                        
+                        }
                         break;
                     }
                     default:
                         std::cerr << "Opcion no válida\n";
+                        return 0;
                         break;
                 }
                 break;
@@ -414,9 +441,9 @@ int main() {
             }
             default:
                 std::cerr << "Opcion no válida.\n";
+                return 0;
                 break;
         }
     }
     return 0;
-}
 }
