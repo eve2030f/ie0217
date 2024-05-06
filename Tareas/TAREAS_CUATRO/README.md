@@ -13,22 +13,14 @@ I Semestre 2024
 
 ## Parte Práctica - Calculadora de matrices
 
-Para ejecutar el código escriba en la terminal:
+Se dividió el código en validacion.cpp, validacion.hpp, matriz.hpp, matriz.cpp y main1.cpp pero a pesar de las correcciones, diferentes formas de definir el std::complex e incluso la instanciación explíscita seguía saliendo el mismo error. Por ello se prefirió utilizar el código completo main.cpp para visualizar los resultados.
 
-````
-g++ -o tarea4.exe ./main.cpp
-./tarea4.exe
-
-````
-
-
-Se dividió el código en validacion.cpp, validacion.hpp, matriz.hpp, matriz.cpp y main1.cpp pero a pesar de los intentos y arreglos en el código seguía saliendo un error.
-
+Con la separación y ejecutando el codigo con:
 ````
 g++ -o ./tarea4.exe ./main1.cpp ./validacion.cpp ./matriz.cpp
 ./tarea4.exe
 ````
-Error 
+Salía el error que no se pudo arreglar: 
 ````
 In file included from ./main1.cpp:7:
 ./matriz.cpp: In instantiation of 'void Matriz<T>::llenarMatrizAleatoria2() [with T = int]':
@@ -53,11 +45,13 @@ Sin embargo, se puede ejecutar el codigo completo de la siguiente manera:
 ````
 g++ -o tarea4.exe ./main.cpp
 ./tarea4
+
 o bien,  ./tarea4.exe
 ````
 
 
-El resultado del menu junto con un ejemplo de la ejecución sería el siguiente:
+Con ello, se obtiene el resultado del menu junto con un ejemplo de la ejecución siguiente:
+
 1. Seleccione el tipo de variable, de lo contrario, si comienza con la opción 2 le va a tirar un error de que debe seleccionar el tipo de variable antes de iniciar. 
 ````
 --- Menu ---
