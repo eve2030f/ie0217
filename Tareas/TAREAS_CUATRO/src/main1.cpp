@@ -1,4 +1,4 @@
-//Tarea 3 Evelyn Feng Wu B82870
+//Tarea 4 Evelyn Feng Wu B82870
 // Calculadora de matrices usando templates
 
 
@@ -16,9 +16,9 @@
  */
 
 #include <iostream>
-#include "matriz.hpp"
 #include "validacion.hpp"
-#include "matriz.cpp"
+#include "matriz.hpp"
+
 int main() {
     int filas, columnas;
     std::string input_filas, input_columnas;
