@@ -176,7 +176,7 @@ void llenarMatrizAleatoria2() {
     }
 }
   /**
-     * @brief Sobrecarga del operador de suma para matrices.
+     * @brief Operaciones con matrices
      */
 
     // Operaciones con matrices
