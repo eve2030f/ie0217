@@ -12,47 +12,25 @@ I Semestre 2024
 
 
 ## Parte Práctica - Calculadora de matrices
-
-Se dividió el código en validacion.cpp, validacion.hpp, matriz.hpp, matriz.cpp y main1.cpp pero a pesar de las correcciones, diferentes formas de definir el std::complex e incluso la instanciación explíscita seguía saliendo el mismo error. Por ello se prefirió utilizar el código completo main.cpp para visualizar los resultados.
-
-Con la separación y ejecutando el codigo con:
-````
-g++ -o ./tarea4.exe ./main1.cpp ./validacion.cpp ./matriz.cpp
-./tarea4.exe
-````
-Salía el error que no se pudo arreglar: 
-````
-In file included from ./main1.cpp:7:
-./matriz.cpp: In instantiation of 'void Matriz<T>::llenarMatrizAleatoria2() [with T = int]':
-./matriz.cpp:110:16:   required from here
-./matriz.cpp:100:32: error: cannot convert 'std::complex<float>' to '__gnu_cxx::__alloc_traits<std::allocator<int>, int>::value_type' {aka 'int'} in assignment
-  100 |             datos[i][j] = std::complex<float>(realPart, imagPart);
-      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                |
-      |                                std::complex<float>
-./matriz.cpp: In instantiation of 'void Matriz<T>::llenarMatrizAleatoria2() [with T = float]':
-./matriz.cpp:111:16:   required from here
-./matriz.cpp:100:32: error: cannot convert 'std::complex<float>' to '__gnu_cxx::__alloc_traits<std::allocator<float>, float>::value_type' {aka 'float'} in assignment
-  100 |             datos[i][j] = std::complex<float>(realPart, imagPart);
-      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                |
-      |                                std::complex<float>
+El programa se divide en main1.cpp, matriz.hpp, validacion.cpp y validacion.hpp. Para correr el código ejecute:
 
 ````
-
-Sin embargo, se puede ejecutar el codigo completo de la siguiente manera:
+ g++ -o ./tarea4.exe ./main1.cpp ./validacion.cpp
+ ./tarea4.exe
+ ````
+También se adjunta el código en un solo archivo main.cpp que se puede ejecutar con:
 
 ````
 g++ -o tarea4.exe ./main.cpp
-./tarea4
-
-o bien,  ./tarea4.exe
+./tarea4.exe
 ````
 
+*Se seleccionó esta forma de dividir el código pues al dividirlo en validacion.cpp, validacion.hpp, matriz.hpp, matriz.cpp y main1.cpp, ni siquiera con la instanciación explíscita se podía lograr la instanciación correcta instanciación complex de llenarMatrizAleatoria2. En caso de querer buscar los archivos, los puede encontrar en los commits anteriores del repositorio.*
 
-Con ello, se obtiene el resultado del menu junto con un ejemplo de la ejecución siguiente:
 
-1. Seleccione el tipo de variable, de lo contrario, si comienza con la opción 2 le va a tirar un error de que debe seleccionar el tipo de variable antes de iniciar. 
+Con ello, se obtiene el siguiente resultado del menú junto con una expliación y un ejemplo de la ejecución:
+
+1. Seleccione el tipo de variable con **opción 1**, de lo contrario, si comienza con la opción 2 le va a tirar un error de que debe seleccionar el tipo de variable antes de iniciar. 
 ````
 --- Menu ---
 1. Seleccionar tipo de variable
@@ -70,10 +48,15 @@ Seleccione el tipo de variable:
 ````
 2. Se puede seleccionar el ingreso manual de la matriz con la **opción 2** o que genere una aleatoria con la **opción 3** de acuerdo a la variable seleccionada (float, entero o complejo). El número complejo sale como (real,imaginario), siendo cada uno de estos un valor.
 
-Ingreso de la amtriz manual:
+**Ingreso de la matriz manual:**
+
 Debe ser de acuerdo a la dimensión de la matriz valor de fila * columna y separado por comas. Ejemplo de matriz 2x2. Dimensión 2*2= 4 y en formato **2,3,4,5** (números pegados y separados por comas). Además, se le seguirá pidiendo los elementos de la matriz hasta que los ponga correctamente.
 
 *Nota: En caso de poner 2 y enter se le va a pedir como mínimo y por default la cantidad de elementos de la dimensión por lo que si la dimensión es 4, el sistema seguirá esperando 3 valores más.*
+
+**Generación de matriz aleatoria**
+
+Al ingresar la opción 3 se le pide la cantidad de columnas y filas que desea en la matriz y se procede a generar esta. Para visualizarla pase al sigueinte paso.
 
 3. Seleccione la **opción 4** para visualizar los valores de las matrices.
 
@@ -210,7 +193,7 @@ Saliendo del programa.
 
 ## Link de Doxyfile por medio del Netlify:
 
-https://663847b5e4a6425b54d2a5c0--rad-monstera-5eee87.netlify.app/
+https://663c05dfa718f71872be00ac--profound-beignet-36f158.netlify.app/
 
 
 ## Parte Teórica
