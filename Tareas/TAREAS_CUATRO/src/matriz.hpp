@@ -145,7 +145,7 @@ void llenarMatrizAleatoria2() {
     }
 }
   /**
-     * @brief Sobrecarga del operador de suma para matrices.
+     * @brief Operaciones con matrices
      */
 
     // Operaciones con matrices
@@ -168,13 +168,13 @@ void llenarMatrizAleatoria2() {
         if (filas != otra.filas || columnas != otra.columnas) {
             throw std::invalid_argument("Las matrices no tienen las mismas dimensiones");
         }
-        Matriz<T> resultado(filas, columnas);
+        Matriz<T> resultado1(filas, columnas);
         for (int i = 0; i < filas; ++i) {
             for (int j = 0; j < columnas; ++j) {
-                resultado.datos[i][j] = datos[i][j] - otra.datos[i][j];
+                resultado1.datos[i][j] = datos[i][j] - otra.datos[i][j];
             }
         }
-        return resultado;
+        return resultado1;
     }
   /**
      * @brief Sobrecarga del operador de multiplicación para matrices.
@@ -183,16 +183,16 @@ void llenarMatrizAleatoria2() {
         if (columnas != otra.filas) {
             throw std::invalid_argument("El numero de columnas de la primera matriz no coincide con el numero de filas de la segunda matriz");
         }
-        Matriz<T> resultado(filas, otra.columnas);
+        Matriz<T> resultado2(filas, otra.columnas);
         for (int i = 0; i < filas; ++i) {
             for (int j = 0; j < otra.columnas; ++j) {
-                resultado.datos[i][j] = 0;
+                resultado2.datos[i][j] = 0;
                 for (int k = 0; k < columnas; ++k) {
-                    resultado.datos[i][j] += datos[i][k] * otra.datos[k][j];
+                    resultado2.datos[i][j] += datos[i][k] * otra.datos[k][j];
                 }
             }
         }
-        return resultado;
+        return resultado2;
     }
  /**
      * @brief Función para sumar dos matrices.
