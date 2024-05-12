@@ -23,23 +23,23 @@ I Semestre 2024
 
 1. ¿Qué es una expresión regular y cuál es su propósito en programación?
 
-Una expresión regular es una secuencia de caracteres que define un patrón de búsqueda. Se utilizan en programación para buscar y manipular cadenas de texto de manera eficiente, permitiendo realizar operaciones como búsqueda, sustitución, validación, etc., basadas en ese patrón.
+Una expresión regular, regex o regexp es una secuencia de caracteres o patrones utilizados para un patrón de búsqueda. Se utilizan en programación para buscar y manipular cadenas de texto de manera eficiente. Nos permiten realizar búsquedas, sustituciones, validaciones, etc., basadas en ese patrón.
 
 2. ¿Qué significan los caracteres especiales . y * en una expresión regular?
 
-En una expresión regular, el carácter "." (punto) coincide con cualquier carácter excepto el salto de línea. El "*" (asterisco) indica que el elemento precedente puede aparecer cero o más veces en la cadena.
+El carácter "." (punto) coincide con cualquier carácter excepto el salto de línea. El "*" (asterisco) indica que el elemento precedente puede aparecer cero o más veces en la cadena.
 
 3. ¿Cómo se pueden agrupar subexpresiones en una expresión regular?
 
-Las subexpresiones se pueden agrupar utilizando paréntesis. Esto permite aplicar operadores a grupos completos de caracteres en lugar de a caracteres individuales.
+Las subexpresiones se pueden agrupar utilizando paréntesis. Esto permite aplicar operadores a grupos completos de caracteres.
 
 4. ¿Qué función cumple la barra invertida \ en una expresión regular?
 
-La barra invertida "" se utiliza para escapar caracteres especiales en una expresión regular o para denotar secuencias especiales como el principio de una línea o el final de una palabra.
+La barra invertida se utiliza para escapar caracteres especiales en una expresión regular o para denotar secuencias especiales como el principio de una línea o el final de una palabra. La expresión \. coincidirá con un punto literal en el texto.
 
-5. xplique cómo se pueden capturar coincidencias usando paréntesis en una expresión regular.
+5. Explique cómo se pueden capturar coincidencias usando paréntesis en una expresión regular.
 
-Al usar paréntesis en una expresión regular, se pueden capturar subcadenas coincidentes. Estas subcadenas se pueden recuperar posteriormente para su uso en el programa.
+Al usar paréntesis en una expresión regular, se pueden capturar subcadenas coincidentes. Estas subcadenas se pueden recuperar posteriormente para su uso en el programa. Con (ab)+ coincidirá con "ab", "abab", "ababab", etc.
 
 6. ¿Cuál es la diferencia entre \d y \D en una expresión regular?
 
@@ -55,15 +55,24 @@ El modificador "$" se utiliza para indicar el final de una cadena en una expresi
 
 9. Describa cómo validar una dirección de correo electrónico usando expresiones regulares en C++.
 
-Para validar una dirección de correo electrónico en C++ usando expresiones regulares, se puede usar una expresión regular que coincida con el formato estándar de una dirección de correo electrónico. Luego, se puede verificar si la entrada del usuario coincide con este patrón.
+Para validar una dirección de correo electrónico, se puede usar una expresión regular que coincida con el formato estándar de una dirección de correo electrónico. Luego, se puede verificar si la entrada del usuario coincide con este patrón. Por ejemplo:
+
+````
+ejemplo@gmail.com
+
+([a-zA-Z0-9_.+-]+)@gmail.com
+
+En vez de "ejemplo", "gmail" o "com" puede haber cualquier signo de +, -, . o _, así como cualquier letra en mayúscola o minúscula o cualquier número del 0 al 9. Debe ser separado por un @ entre el "ejemplo" y el "gmail" y un punto entre el "gmail" y el "com".
+
+````
 
 10. Discuta las implicaciones de rendimiento de utilizar expresiones regulares en aplicaciones de software. ¿Qué técnicas se pueden aplicar para optimizar una expresión regular compleja, especialmente en contextos donde el tiempo de ejecución es crítico?
 
-El uso de expresiones regulares puede tener implicaciones de rendimiento, ya que algunas expresiones pueden ser costosas en términos de tiempo de ejecución, especialmente en cadenas de texto largas. Para optimizar una expresión regular compleja, se pueden aplicar técnicas como la simplificación del patrón, la limitación de la búsqueda y la optimización de la implementación.
+El uso de expresiones regulares puede tener implicaciones de rendimiento, ya que algunas expresiones pueden ser costosas en términos de tiempo de ejecución, especialmente en cadenas de texto largas. Para optimizar una expresión regular compleja se pueden aplicar técnicas como la simplificación del patrón, la limitación de la búsqueda y la optimización de la implementación.
 
 11. ¿Qué es un Makefile y cuál es su función en un proyecto de C++?
 
-Un Makefile es un archivo de configuración utilizado en proyectos de software, especialmente en proyectos de C++, para definir cómo se compila y enlaza el código fuente del proyecto.
+Un Makefile es un archivo de configuración utilizado en proyectos de software, especialmente en proyectos de C++, para decidir qué partes de un programa grande se compilan y enlazan el código fuente del proyecto.
 
 12. ¿Cuál es la diferencia entre una regla implícita y una regla explícita en un Makefile?
 
@@ -71,11 +80,15 @@ Una regla implícita es una regla predefinida en un Makefile que especifica cóm
 
 13. Explique el propósito de las macros (variables) en un Makefile.
 
-Las macros en un Makefile se utilizan para definir variables que pueden ser referenciadas en todo el archivo. Esto permite una configuración más flexible y facilita la modificación del comportamiento del Makefile.
+Las macros en un Makefile se utilizan para definir variables que pueden ser referenciadas en todo el archivo, permitiendo así una configuración más flexible y facilita la modificación del comportamiento del Makefile.
 
 14. ¿Qué es un objetivo (target) en un Makefile y cómo se define?
 
-Un objetivo en un Makefile es el resultado que se desea lograr al ejecutar el Makefile. Se define especificando el nombre del archivo que se desea generar y las dependencias que deben cumplirse antes de que el objetivo pueda ser alcanzado.
+Un objetivo en un Makefile es el resultado que se desea lograr al ejecutar el Makefile. Se define especificando el nombre del archivo que se desea generar y las dependencias que deben cumplirse antes de que el objetivo pueda ser alcanzado. Por ejemplo:
+````
+##Nombre del programa de salida, ejecutable final - nombre de variable
+TARGET= gestion_estudiantes.exe
+````
 
 15. ¿Por qué es útil dividir un proyecto de C++ en múltiples archivos fuente y cómo ayuda el uso de Makefiles en este enfoque?
 
@@ -83,13 +96,13 @@ Dividir un proyecto de C++ en múltiples archivos fuente ayuda a organizar y man
 
 16. ¿Cómo se pueden definir dependencias entre los archivos fuente en un Makefile?
 
-Las dependencias entre archivos fuente se pueden definir en un Makefile mediante reglas que indican qué archivos objeto deben generarse antes de poder compilar un archivo fuente específico.
+Se pueden definir en un Makefile mediante reglas que indican qué archivos objeto deben generarse antes de poder compilar un archivo fuente específico.
 
 17. Explique cómo se puede compilar un proyecto en diferentes sistemas operativos usando un solo Makefile.
 
 Se puede compilar un proyecto en diferentes sistemas operativos utilizando un solo Makefile al escribir reglas que se adapten a las diferencias en la compilación y el enlazado entre sistemas operativos.
-¿
-18. Cuál es el propósito de los comandos clean y all en un Makefile?
+
+18. ¿Cuál es el propósito de los comandos clean y all en un Makefile?
 
 El comando "clean" en un Makefile se utiliza para eliminar los archivos generados durante la compilación, como archivos objeto y ejecutables. El comando "all" se utiliza para compilar todos los objetivos especificados en el Makefile.
 
