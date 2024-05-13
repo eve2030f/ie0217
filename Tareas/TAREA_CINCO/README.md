@@ -11,16 +11,94 @@ Profesor: Rafael Esteban Badilla Alvarado
 I Semestre 2024
 
 
-## Parte Práctica - Calculadora de matrices
+## Parte Práctica - Validador de correo electronico
+
+Para correr todo el código con el makefile utilice el siguiente código:
+
+````
+mingw32-make all 
+o
+mingw32-make 
+````
+El resultado sería el siguiente:
+````
+PS C:\Users\MONICA\Downloads\ESTRUCTURAS_ABS\ie0217\Tareas\TAREA_CINCO> mingw32-make all  
+"Compilando src/funciones.cpp..."
+"Compilando src/main.cpp..."
+"Compilando el ejecutable..."
+"Ejecutando el programa..."
+----- MENU -----
+1. Validar correo electronico
+2. Salir
+Ingrese su opcion:
+````
+
+Si desea solo compilar el programa para que se cree los documentos funciones.o, main.o y tarea5.exe escriba en su terminal:
+````
+mingw32-make build
+````
+Para ejecutar el código escriba:
+````
+mingw32-make run
+````
+El resultado sería el siguiente:
+
+````
+----- MENU -----
+1. Validar correo electronico
+2. Salir
+````
+
+La opción 1. le permite ingresar un correo electrónico que una vez ingresado y oprimido ENTER lo verifica automáticamente ya sea tirándole error con excepciones o indicando que la dirección es válida. 
 
 
+Finalmente, para lmpiar los documentos puede utilizar el comando:
+````
+mingw32-make clean
+````
+Seguido de dos s, ENTER, s y ENTER para borrar los archivos dentro de la carpeta obj y luego los de la carpeta bin.
+````
+"Limpiando el directorio..."
+del obj bin
+C:\Users\MONICA\Downloads\ESTRUCTURAS_ABS\ie0217\Tareas\TAREA_CINCO\obj\*, ¿Está seguro (S/N)? s
+C:\Users\MONICA\Downloads\ESTRUCTURAS_ABS\ie0217\Tareas\TAREA_CINCO\bin\*, ¿Está seguro (S/N)? s
+````
+
+A continuación, se muestra un ejemplo del validador de correos electrónicos:
+````
+----- MENU -----
+1. Validar correo electronico
+2. Salir
+Ingrese su opcion: 1
+Ingrese una direccion de correo electronico: asdasd.com
+Error: La direccion de correo electronico debe contener el caracter '@'.
+----- MENU -----
+1. Validar correo electronico
+2. Salir
+Ingrese su opcion: 1
+Ingrese una direccion de correo electronico: asvdajsdasbdkas@gmail.com
+La direccion de correo electronico es valida.
+----- MENU -----
+1. Validar correo electronico
+2. Salir
+Ingrese su opcion: 1
+Ingrese una direccion de correo electronico: -asnbdash@gmial.com
+Error: El nombre no debe comenzar ni terminar con un punto, guion o guion bajo.
+----- MENU -----
+1. Validar correo electronico
+2. Salir
+Ingrese su opcion: 1
+Ingrese una direccion de correo electronico: holaA23@gmail.ucr.ac.cr
+La direccion de correo electronico es valida.
+
+````
 ## Link de Doxyfile por medio del Netlify:
 
 
 
 
 ## Parte Teórica
-
+### Expresiones Regulares
 1. ¿Qué es una expresión regular y cuál es su propósito en programación?
 
 Una expresión regular, regex o regexp es una secuencia de caracteres o patrones utilizados para un patrón de búsqueda. Se utilizan en programación para buscar y manipular cadenas de texto de manera eficiente. Nos permiten realizar búsquedas, sustituciones, validaciones, etc., basadas en ese patrón.
@@ -118,3 +196,45 @@ Los argumentos de la línea de comandos se pueden pasar a un Makefile utilizando
 source.o: source.cpp
     g++ -c source.cpp -o source.o
 ````
+
+### Makefile
+
+1. ¿Qué suelen contener las variables CC, CFLAGS, CXXFLAGS y LDFLAGS en un Makefile?
+
+Las variables en un Makefile se utilizan para definir configuraciones y opciones que se utilizarán durante el proceso de compilación y enlazado del programa.
+
+- CC:  se utiliza para especificar el compilador a utilizar. Por ejemplo, "CC = gcc" especifica que se utilizará el compilador GCC.
+
+- CFLAGS: se utiliza para especificar las opciones del compilador. Por ejemplo, "-Wall" para activar todos los avisos y "-O2" para habilitar la optimización de nivel 2.
+
+- CXXFLAGS: similar a CFLAGS, pero específico para el compilador de C++ (g++).
+
+- LDFLAGS:  se utiliza para especificar las opciones del enlazador. Por ejemplo, "-lm" para enlazar con la biblioteca matemática estándar y "-L" para especificar directorios de bibliotecas.
+
+2. ¿De qué se compone una regla en un Makefile?
+
+Se compone de tres partes principales: los objetivos, los prerequisitos y las recetas. Los objetivos son los archivos (o acciones) que se desean construir, los prerequisitos son los archivos necesarios para construir los objetivos y las recetas son las acciones que deben llevarse a cabo para construir los objetivos utilizando los prerequisitos.
+
+3. Defina qué es un target y cómo se relaciona con sus prerequisitos.
+
+Un target (objetivo) en un Makefile es el archivo que se desea construir. Se relaciona con sus prerequisitos, que son los archivos necesarios para construir el objetivo. Si algún prerequisito ha sido modificado más recientemente que el objetivo, o si el objetivo no existe, se ejecutan las acciones asociadas con el objetivo para construirlo.
+
+4. ¿Para qué se utiliza la bandera -I, -c y -o del compilador gcc?
+
+- -I: especifica directorios de inclusión para buscar archivos de encabezado. Por ejemplo, "-I /usr/include" agrega "/usr/include" al camino de búsqueda de archivos de encabezado.
+
+- -c: indica al compilador que genere solo archivos objeto (*.o) sin enlazarlos para crear un ejecutable.
+
+- -o: especifica el nombre del archivo de salida generado por el compilador. Por ejemplo, "-o archivo.o" especifica que el archivo de salida se llamará "archivo.o".
+
+5. ¿Cómo se definen y se utilizan las variables en un Makefile? ¿Qué utilidad tienen?
+
+Las variables en un Makefile se definen utilizando la sintaxis "nombre = valor". Por ejemplo, "CC = gcc" define la variable CC con el valor gcc. Las variables se utilizan colocando el nombre de la variable entre $( ) o ${ } en el Makefile. Por ejemplo, "$(CC)" se expandirá al valor de la variable CC. Las variables son útiles para definir configuraciones comunes que se pueden reutilizar en todo el Makefile y facilitan la modificación de la configuración del compilador u otras opciones.
+
+6. ¿Qué utilidad tiene un @ en un Makefile?
+
+El símbolo "@" en un Makefile se utiliza para silenciar la salida de la línea de comando que está siendo ejecutada. Por ejemplo, "@echo 'Compilando...'" no mostrará "Compilando..." en la salida estándar mientras se ejecuta el Makefile.
+
+7. ¿Para qué se utiliza .PHONY en un Makefile?
+
+La directiva ".PHONY" en un Makefile se utiliza para especificar objetivos que no son archivos reales. Esto evita conflictos si hay archivos con el mismo nombre que el objetivo en el directorio. Por ejemplo, si tienes un objetivo llamado "clean" que elimina archivos, podría haber un archivo real llamado "clean" en el directorio, y sin ".PHONY", make no lo reconocería correctamente. Con ".PHONY", se asegura de que "clean" se ejecute siempre como una regla y no se confunda con un archivo real.
