@@ -6,7 +6,7 @@
  * @author Evelyn Feng
  * @date 5/12/24
  * @license MIT License
-  * @brief* Este programa está sujeto a los términos y condiciones de la licencia resente en el archivo 'licencia.txt'.
+  * @brief* Este documento contine las funciones utilizadas en la clase ValidarEmail Este programa está sujeto a los términos y condiciones de la licencia resente en el archivo 'licencia.txt'.
  
  
  */
