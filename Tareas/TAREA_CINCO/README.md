@@ -196,7 +196,7 @@ source.o: source.cpp
     g++ -c source.cpp -o source.o
 ````
 
-##### Makefile
+## Makefile
 
 ### 1. ¿Qué suelen contener las variables CC, CFLAGS, CXXFLAGS y LDFLAGS en un Makefile?
 
