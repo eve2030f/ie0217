@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EventoDinamico", "EventoDinamico.vcxproj", "{64B2FABF-3364-48DC-9C64-E36C012ED411}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64B2FABF-3364-48DC-9C64-E36C012ED411}.Debug|x64.ActiveCfg = Debug|x64
+		{64B2FABF-3364-48DC-9C64-E36C012ED411}.Debug|x64.Build.0 = Debug|x64
+		{64B2FABF-3364-48DC-9C64-E36C012ED411}.Debug|x86.ActiveCfg = Debug|Win32
+		{64B2FABF-3364-48DC-9C64-E36C012ED411}.Debug|x86.Build.0 = Debug|Win32
+		{64B2FABF-3364-48DC-9C64-E36C012ED411}.Release|x64.ActiveCfg = Release|x64
+		{64B2FABF-3364-48DC-9C64-E36C012ED411}.Release|x64.Build.0 = Release|x64
+		{64B2FABF-3364-48DC-9C64-E36C012ED411}.Release|x86.ActiveCfg = Release|Win32
+		{64B2FABF-3364-48DC-9C64-E36C012ED411}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB214B2C-D218-460C-96C6-1D49600B78DF}
+	EndGlobalSection
+EndGlobal
