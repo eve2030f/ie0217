@@ -8,51 +8,15 @@
  * Este programa está sujeto a los términos y condiciones de la licencia resente en el archivo 'licencia.txt'.
  */
 #include "agenda.hpp"
-#include <iostream>
-#include <functional>
 
-/**
- * @brief Constructor de la clase Agenda.
- * 
- * Inicializa el puntero al primer contacto y todas las entradas de la tabla a nullptr.
- */
-Agenda::Agenda() : primer_contacto(nullptr) {
-    for (int i = 0; i < TAMANO_TABLA; ++i) {
-        tabla[i] = nullptr;
-    }
+size_t Agenda::funcion_hash(const string& nombre) {
+    return hash<string>{}(nombre) % TAMANO_TABLA;
 }
 
-/**
- * @brief Destructor de la clase Agenda.
- * 
- * Libera la memoria de la lista enlazada y de la tabla hash.
- */
-Agenda::~Agenda() {
-    Contacto* actual = primer_contacto;
-    while (actual != nullptr) {
-        Contacto* temp = actual;
-        actual = actual->siguiente;
-        delete temp;
-    }
-
-    for (int i = 0; i < TAMANO_TABLA; ++i) {
-        Contacto* actual = tabla[i];
-        while (actual != nullptr) {
-            Contacto* temp = actual;
-            actual = actual->siguiente;
-            delete temp;
-        }
-    }
-}
-
-/**
- * @brief Agrega un nuevo contacto a la agenda en orden alfabético.
- * 
- * @param nombre Nombre del contacto.
- * @param telefono Teléfono del contacto.
- */
-void Agenda::agregarOrdenado(const std::string& nombre, const std::string& telefono) {
-    Contacto* nuevo_contacto = new Contacto(nombre, telefono);
+void Agenda::agregarOrdenado(const string& nombre, const string& telefono) {
+    Contacto* nuevo_contacto = (Contacto*)malloc(sizeof(Contacto));
+    nuevo_contacto->nombre = nombre;
+    nuevo_contacto->telefono = telefono;
     nuevo_contacto->siguiente = nullptr;
 
     if (primer_contacto == nullptr || primer_contacto->nombre > nombre) {
@@ -70,16 +34,37 @@ void Agenda::agregarOrdenado(const std::string& nombre, const std::string& telef
     actual->siguiente = nuevo_contacto;
 }
 
-/**
- * @brief Agrega un nuevo contacto a la agenda.
- * 
- * @param nombre Nombre del contacto.
- * @param telefono Teléfono del contacto.
- */
-void Agenda::agregar(const std::string& nombre, const std::string& telefono) {
+Agenda::Agenda() : primer_contacto(nullptr) {
+    for (int i = 0; i < TAMANO_TABLA; ++i) {
+        tabla[i] = nullptr;
+    }
+}
+
+Agenda::~Agenda() {
+    Contacto* actual = primer_contacto;
+    while (actual != nullptr) {
+        Contacto* temp = actual;
+        actual = actual->siguiente;
+        free(temp);
+    }
+
+    for (int i = 0; i < TAMANO_TABLA; ++i) {
+        Contacto* actual = tabla[i];
+        while (actual != nullptr) {
+            Contacto* temp = actual;
+            actual = actual->siguiente;
+            delete temp;
+        }
+    }
+}
+
+void Agenda::agregar(const string& nombre, const string& telefono) {
     agregarOrdenado(nombre, telefono);
+
     size_t indice = funcion_hash(nombre);
+
     Contacto* nuevo_contacto_hash = new Contacto(nombre, telefono);
+
     if (tabla[indice] == nullptr) {
         tabla[indice] = nuevo_contacto_hash;
     } else {
@@ -91,13 +76,7 @@ void Agenda::agregar(const std::string& nombre, const std::string& telefono) {
     }
 }
 
-/**
- * @brief Obtiene el teléfono asociado a un nombre de contacto.
- * 
- * @param nombre Nombre del contacto.
- * @return Teléfono del contacto o "Contacto no encontrado" si no se encuentra.
- */
-std::string Agenda::obtener(const std::string& nombre) {
+string Agenda::obtener(const string& nombre) {
     Contacto* actual = primer_contacto;
     while (actual != nullptr) {
         if (actual->nombre == nombre) {
@@ -108,22 +87,17 @@ std::string Agenda::obtener(const std::string& nombre) {
     return "Contacto no encontrado";
 }
 
-/**
- * @brief Elimina un contacto de la agenda.
- * 
- * @param nombre Nombre del contacto a eliminar.
- */
-void Agenda::eliminar(const std::string& nombre) {
+void Agenda::eliminar(const string& nombre) {
     if (primer_contacto == nullptr) {
-        std::cout << "La lista de contactos está vacía.\n";
+        cout << "La lista de contactos está vacía.\n";
         return;
     }
 
     if (primer_contacto->nombre == nombre) {
         Contacto* temp = primer_contacto;
         primer_contacto = primer_contacto->siguiente;
-        delete temp;
-        std::cout << "Contacto eliminado correctamente.\n";
+        free(temp);
+        cout << "Contacto eliminado correctamente.\n";
         return;
     }
 
@@ -132,22 +106,17 @@ void Agenda::eliminar(const std::string& nombre) {
         if (actual->siguiente->nombre == nombre) {
             Contacto* temp = actual->siguiente;
             actual->siguiente = actual->siguiente->siguiente;
-            delete temp;
-            std::cout << "Contacto eliminado correctamente.\n";
+            free(temp);
+            cout << "Contacto eliminado correctamente.\n";
             return;
         }
         actual = actual->siguiente;
     }
 
-    std::cout << "Contacto no encontrado.\n";
+    cout << "Contacto no encontrado.\n";
 }
 
-/**
- * @brief Elimina un contacto de la agenda utilizando la tabla hash.
- * 
- * @param nombre Nombre del contacto a eliminar.
- */
-void Agenda::eliminar2(const std::string& nombre) {
+void Agenda::eliminar2(const string& nombre) {
     size_t indice = funcion_hash(nombre);
 
     if (tabla[indice] != nullptr) {
@@ -162,39 +131,34 @@ void Agenda::eliminar2(const std::string& nombre) {
                     contacto_anterior->siguiente = contacto_actual->siguiente;
                 }
                 delete contacto_actual;
-                std::cout << "Contacto eliminado correctamente.\n";
+                cout << "Contacto eliminado correctamente.\n";
                 return;
             }
             contacto_anterior = contacto_actual;
             contacto_actual = contacto_actual->siguiente;
         }
     } else {
-        std::cout << "No hay contactos asociados a esta clave hash.\n";
+        cout << "No hay contactos asociados a esta clave hash.\n";
     }
 }
 
-/**
- * @brief Muestra los contactos almacenados en la lista enlazada.
- */
 void Agenda::mostrarListaEnlazada() {
-    std::cout << "\nContactos almacenados (Lista Enlazada o memoria):\n";
+    cout << "\nContactos almacenados (Lista Enlazada o memoria):\n";
     Contacto* actual = primer_contacto;
     while (actual != nullptr) {
-        std::cout << "Nombre: " << actual->nombre << ", Telefono: " << actual->telefono << std::endl;
+        cout << "Nombre: " << actual->nombre << ", Telefono: " << actual->telefono << endl;
         actual = actual->siguiente;
     }
 }
 
-/**
- * @brief Muestra los contactos almacenados en la tabla hash.
- * 
- * Cabe destacar que este método no garantiza un orden alfabético, ya que se utiliza para proporcionar acceso rápido a los datos.
- */
 void Agenda::mostrarTablaHash() {
-    std::cout << "\nContactos almacenados (Tabla Hash o Cloud):\n";
+    cout << "\nContactos almacenados (Tabla Hash o Cloud):\n";
+
     bool hayContactos = false;
+
     for (int i = 0; i < TAMANO_TABLA; ++i) {
         Contacto* actual = tabla[i];
+
         if (actual != nullptr) {
             hayContactos = true;
 
@@ -208,24 +172,15 @@ void Agenda::mostrarTablaHash() {
                 }
             }
 
-            std::cout << "Indice " << i << ": ";
+            cout << "Indice " << i << ": ";
             for (Contacto* contacto = actual; contacto != nullptr; contacto = contacto->siguiente) {
-                std::cout << "(Nombre: " << contacto->nombre << ", Telefono: " << contacto->telefono << ") ";
+                cout << "(Nombre: " << contacto->nombre << ", Telefono: " << contacto->telefono << ") ";
             }
-            std::cout << std::endl;
+            cout << endl;
         }
     }
-    if (!hayContactos) {
-        std::cout << "No hay contactos almacenados en la tabla." << std::endl;
-    }
-}
 
-/**
- * @brief Función de dispersión hash para calcular el índice en la tabla hash.
- * 
- * @param nombre Nombre del contacto.
- * @return Índice en la tabla hash.
- */
-size_t Agenda::funcion_hash(const std::string& nombre) {
-    return std::hash<std::string>{}(nombre) % TAMANO_TABLA;
+    if (!hayContactos) {
+        cout << "No hay contactos almacenados en la tabla." << endl;
+    }
 }
