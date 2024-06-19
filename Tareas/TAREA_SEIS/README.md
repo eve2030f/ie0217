@@ -13,7 +13,7 @@ I Semestre 2024
 
 ## Parte Práctica 
 
-1. Creación de la base de datos y tablas
+## 1. Creación de la base de datos y tablas
 `````
 -- Creando la Base de datos
 CREATE DATABASE IF NOT EXISTS IngenieriaElectrica;
@@ -51,7 +51,7 @@ CREATE TABLE Descripciones (
     FOREIGN KEY (CursoID) REFERENCES Cursos(CursoID)
 );
 `````
-2. Inserción de datos
+## 2. Inserción de datos
 `````
 -- Insertando cursos actuales
 INSERT INTO Cursos (Sigla, Nombre, Semestre, Creditos) VALUES
@@ -118,7 +118,7 @@ INSERT INTO Descripciones (CursoID, Descripcion, Dificultad) VALUES
 (37, 'Un laboratorio de robótica es un curso presencial dedicado a la investigación, el desarrollo y la enseñanza en el campo de la robótica.', 'Media'),
 (38, 'Se profundiza en el uso de SQL y otras herramientas del análisis de datos. ', 'Media');
 `````
-3. Consultas en la base de datos
+## 3. Consultas en la base de datos
 `````
 -- Consulta para listar todos los cursos con su sigla, nombre, semestre, creditos, descripcion y dificultad.
 SELECT 
@@ -146,8 +146,38 @@ FROM Cursos
 WHERE Semestre = 10;
 
 `````
+## 4. Actualizaciones
+`````
+-- Actualizando nombre y créditos de 3 de los cursos optativos por medio de la sigla
+UPDATE Cursos
+SET Nombre = 'Diseño de sistemas de iluminación', Creditos = 4
+WHERE Sigla IN ('IE-OP1');
+UPDATE Cursos
+SET Nombre = 'Laboratorio de microcontroladores', Creditos = 4
+WHERE Sigla IN ('IE-OP2');
+UPDATE Cursos
+SET Nombre = 'Metrología en la ingeniería eléctrica', Creditos = 2
+WHERE Sigla IN ('IE-OP3');
 
-4. 
+-- Para visualizar la tabla de solo optativas 
+SELECT * FROM ingenieriaelectrica.cursos
+WHERE Sigla LIKE 'IE-OP%';
+
+-- Actualizar descripción y dificultad de 3 cursos existentes por medio del ID del curso
+UPDATE Descripciones
+SET Descripcion = 'Diseño de sistemas de iluminación para diferentes aplicaciones, incluyendo iluminación residencial, comercial e industrial.', Dificultad = 'Difícil'
+WHERE CursoID IN (14);
+UPDATE Descripciones
+SET Descripcion = 'Práctica en el uso de microcontroladores para desarrollar sistemas electrónicos integrados. Se cubren temas como la arquitectura de microcontroladores, programación en lenguaje ensamblador y C, interconexión de periféricos, y diseño de aplicaciones con microcontroladores.', Dificultad = 'Difícil'
+WHERE CursoID IN (15);
+UPDATE Descripciones
+SET Descripcion = 'Calibración de instrumentos de medida, la trazabilidad de patrones de medida, la incertidumbre de la medida, y la gestión de la calidad en laboratorios de metrología.', Dificultad = 'Fácil'
+WHERE CursoID IN (18);
+`````
+
+
+
+
 ## Parte Teórica
 
 1. ¿Qué es una base de datos relacional y cuáles son sus características fundamentales?
