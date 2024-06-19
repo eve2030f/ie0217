@@ -220,7 +220,17 @@ WHERE CursoID = '19' OR RequisitoCursoID = '19';
 DELETE FROM Cursos WHERE CursoID = '19';
 SET SQL_SAFE_UPDATES=1;
 `````
-![Tabla cursos actualizada ](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/5.png)
+Tabla de cursos actualizada
+
+![Tabla de cursos actualizada](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/5.png)
+
+Tabla de descripciones actualizada
+
+![Tabla de descripciones actualizada](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/19.png)
+
+Tabla de requisitos actualizada
+
+![Tabla de requisitos actualizada](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/20.png)
 
 
 `````
@@ -228,9 +238,13 @@ SET SQL_SAFE_UPDATES=1;
 DELETE FROM Requisitos WHERE CursoID = '11';
 DELETE FROM Requisitos WHERE CursoID = '13';
 `````
-![Tabla requisitos antes](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/7.png)
+Tabla de requisitos antes
 
-![Tabla requisitos actualizada ](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/6.png)
+![Tabla de requisitos antes](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/7.png)
+
+Tabla de requisitos actualizada
+
+![Tabla de requisitos actualizada ](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/6.png)
 ## Parte Teórica
 
 1. ¿Qué es una base de datos relacional y cuáles son sus características fundamentales?
