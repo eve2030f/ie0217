@@ -65,7 +65,8 @@ INSERT INTO Cursos (Sigla, Nombre, Semestre, Creditos) VALUES
 ('IE-OP3', 'Optativa III', 10, 3),
 ('IE-OP4', 'Optativa IV', 10, 3),
 ('TFG', 'Trabajo final de graduación', 10, 0);
-
+`````
+`````
 -- Insertando cursos que son requisitos de los cursos actuales anteriores para poder emparejarlos
 INSERT INTO Cursos (Sigla, Nombre, Semestre, Creditos) VALUES
 ('IE-0479', 'Ingeniería económica', 8, 3),
@@ -74,7 +75,8 @@ INSERT INTO Cursos (Sigla, Nombre, Semestre, Creditos) VALUES
 ('IE-0405', 'Modelos probabilísticos de señales y sistemas', 6, 3),
 ('IE-0501', 'Responsabilidades en el ejercicio profesional de la ingeniería eléctrica', 6, 1),
 ('IE-0315', 'Máquinas eléctricas I', 6, 3);
-
+`````
+`````
 -- Insertando requisitos de cursos actuales
 INSERT INTO Requisitos (CursoID, RequisitoCursoID) VALUES
 (11, 31),
@@ -84,7 +86,8 @@ INSERT INTO Requisitos (CursoID, RequisitoCursoID) VALUES
 (16, 34),
 (16, 11),
 (17, 35);
-
+`````
+`````
 -- Insertando descipciones de cursos actuales
 INSERT INTO Descripciones (CursoID, Descripcion, Dificultad) VALUES
 (11, 'Introduce a los estudiantes en los principios y prácticas fundamentales para la gestión de sistemas informáticos complejos, incluyendo redes, seguridad informática, administración de servidores y almacenamiento de datos.', 'Difícil'),
@@ -103,16 +106,19 @@ INSERT INTO Descripciones (CursoID, Descripcion, Dificultad) VALUES
 (34, 'Aborda temas como procesos estocásticos, teoría de la estimación y detección, y teoría de la decisión. ', 'Media'),
 (35, 'Las responsabilidades éticas, legales y sociales que enfrentan los ingenieros eléctricos en su ejercicio profesional. ', 'Fácil'),
 (36, 'Desarrollo del funcionamiento de las máquinas eléctricas, incluyendo motores, generadores y transformadores. El curso abarca tanto la teoría como la práctica, con un enfoque en la comprensión de los conceptos físicos y el análisis de los circuitos magnéticos y eléctricos que caracterizan a estas máquinas.', 'Media');
-
+`````
+`````
 -- Agregando 2 cursos nuevos
 INSERT INTO Cursos (Sigla, Nombre, Semestre, Creditos) VALUES
 ('IE-0999', 'Laboratorio de robótica', 9, 3),
 ('IE-0888', 'Análisis de datos I', 8, 3);
-
+`````
+`````
 -- Insertando requisitos para cursos nuevos
 INSERT INTO Requisitos (CursoID, RequisitoCursoID) VALUES
 (37, 36);
-
+`````
+`````
 -- Insertando de descripciones para cursos nuevos
 INSERT INTO Descripciones (CursoID, Descripcion, Dificultad) VALUES
 (37, 'Un laboratorio de robótica es un curso presencial dedicado a la investigación, el desarrollo y la enseñanza en el campo de la robótica.', 'Media'),
@@ -128,23 +134,25 @@ SELECT
 FROM Cursos
 INNER JOIN Descripciones
 ON Cursos.CursoID = Descripciones.CursoID; 
-
+`````
+`````
 -- Muestra los requisitos del curso en específico: IE-0613
 SELECT c.Sigla AS Curso, r.RequisitoCursoID AS Requisito
 FROM Cursos c
 JOIN Requisitos r ON c.CursoID = r.CursoID
 WHERE c.Sigla = 'IE-0613';
-
+`````
+`````
 -- Muestra los cursos que no son optativos
 SELECT Sigla, Nombre, Semestre, Creditos
 FROM Cursos
 WHERE Sigla NOT LIKE 'IE-OP%';
-
+`````
+`````
 -- Lista los cursos que pertenecen al 10mo semestre 
 SELECT Sigla, Nombre, Semestre, Creditos
 FROM Cursos
 WHERE Semestre = 10;
-
 `````
 ## 4. Actualizaciones
 `````
@@ -162,7 +170,8 @@ WHERE Sigla IN ('IE-OP3');
 -- Para visualizar la tabla de solo optativas 
 SELECT * FROM ingenieriaelectrica.cursos
 WHERE Sigla LIKE 'IE-OP%';
-
+`````
+`````
 -- Actualizar descripción y dificultad de 3 cursos existentes por medio del ID del curso
 UPDATE Descripciones
 SET Descripcion = 'Diseño de sistemas de iluminación para diferentes aplicaciones, incluyendo iluminación residencial, comercial e industrial.', Dificultad = 'Difícil'
@@ -175,8 +184,35 @@ SET Descripcion = 'Calibración de instrumentos de medida, la trazabilidad de pa
 WHERE CursoID IN (18);
 `````
 
+## 5. Eliminación de datos
+`````
+-- Elimina un curso inventado Laboratorio de robótica y 2 cursos del plan Optativa 4 y Modelos porbabilisticos
+-- al estar ligados con un foreign key se deben eliminar primero sus datos asociados
+SET SQL_SAFE_UPDATES=0;
+DELETE FROM descripciones
+WHERE CursoID = (SELECT CursoID FROM Cursos WHERE Sigla = 'IE-0999');
+DELETE FROM requisitos
+WHERE CursoID = '37' OR RequisitoCursoID = '37';
+DELETE FROM Cursos WHERE CursoID = '37';
 
+DELETE FROM descripciones
+WHERE CursoID = (SELECT CursoID FROM Cursos WHERE Sigla = 'IE-0405');
+DELETE FROM requisitos
+WHERE CursoID = '34' OR RequisitoCursoID = '34';
+DELETE FROM Cursos WHERE CursoID = '34';
 
+DELETE FROM descripciones
+WHERE CursoID = (SELECT CursoID FROM Cursos WHERE Sigla = 'IE-OP4');
+DELETE FROM requisitos
+WHERE CursoID = '19' OR RequisitoCursoID = '19';
+DELETE FROM Cursos WHERE CursoID = '19';
+SET SQL_SAFE_UPDATES=1;
+`````
+`````
+-- Elimina requisitos específicos de 2 cursos existentes 
+DELETE FROM Requisitos WHERE CursoID = '11';
+DELETE FROM Requisitos WHERE CursoID = '13';
+`````
 
 ## Parte Teórica
 
