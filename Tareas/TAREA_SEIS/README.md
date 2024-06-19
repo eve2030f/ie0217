@@ -52,7 +52,7 @@ CREATE TABLE Descripciones (
 );
 `````
 2. Inserción de datos
-   `````
+`````
 -- Insertando cursos actuales
 INSERT INTO Cursos (Sigla, Nombre, Semestre, Creditos) VALUES
 ('IE-0579', 'Administración de sistemas', 9, 4),
@@ -117,8 +117,37 @@ INSERT INTO Requisitos (CursoID, RequisitoCursoID) VALUES
 INSERT INTO Descripciones (CursoID, Descripcion, Dificultad) VALUES
 (37, 'Un laboratorio de robótica es un curso presencial dedicado a la investigación, el desarrollo y la enseñanza en el campo de la robótica.', 'Media'),
 (38, 'Se profundiza en el uso de SQL y otras herramientas del análisis de datos. ', 'Media');
-   `````
+`````
+3. Consultas en la base de datos
+`````
+-- Consulta para listar todos los cursos con su sigla, nombre, semestre, creditos, descripcion y dificultad.
+SELECT 
+	Cursos.*,
+    Descripciones.Dificultad,
+    Descripciones.Descripcion
+FROM Cursos
+INNER JOIN Descripciones
+ON Cursos.CursoID = Descripciones.CursoID; 
 
+-- Muestra los requisitos del curso en específico: IE-0613
+SELECT c.Sigla AS Curso, r.RequisitoCursoID AS Requisito
+FROM Cursos c
+JOIN Requisitos r ON c.CursoID = r.CursoID
+WHERE c.Sigla = 'IE-0613';
+
+-- Muestra los cursos que no son optativos
+SELECT Sigla, Nombre, Semestre, Creditos
+FROM Cursos
+WHERE Sigla NOT LIKE 'IE-OP%';
+
+-- Lista los cursos que pertenecen al 10mo semestre 
+SELECT Sigla, Nombre, Semestre, Creditos
+FROM Cursos
+WHERE Semestre = 10;
+
+`````
+
+4. 
 ## Parte Teórica
 
 1. ¿Qué es una base de datos relacional y cuáles son sus características fundamentales?
