@@ -77,6 +77,7 @@ INSERT INTO Cursos (Sigla, Nombre, Semestre, Creditos) VALUES
 ('IE-0501', 'Responsabilidades en el ejercicio profesional de la ingeniería eléctrica', 6, 1),
 ('IE-0315', 'Máquinas eléctricas I', 6, 3);
 `````
+![ ](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/2.png)
 `````
 -- Insertando requisitos de cursos actuales
 INSERT INTO Requisitos (CursoID, RequisitoCursoID) VALUES
@@ -88,6 +89,7 @@ INSERT INTO Requisitos (CursoID, RequisitoCursoID) VALUES
 (16, 11),
 (17, 35);
 `````
+![ ](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/3.png)
 `````
 -- Insertando descipciones de cursos actuales
 INSERT INTO Descripciones (CursoID, Descripcion, Dificultad) VALUES
@@ -108,23 +110,27 @@ INSERT INTO Descripciones (CursoID, Descripcion, Dificultad) VALUES
 (35, 'Las responsabilidades éticas, legales y sociales que enfrentan los ingenieros eléctricos en su ejercicio profesional. ', 'Fácil'),
 (36, 'Desarrollo del funcionamiento de las máquinas eléctricas, incluyendo motores, generadores y transformadores. El curso abarca tanto la teoría como la práctica, con un enfoque en la comprensión de los conceptos físicos y el análisis de los circuitos magnéticos y eléctricos que caracterizan a estas máquinas.', 'Media');
 `````
+![ ](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/4.png)
 `````
 -- Agregando 2 cursos nuevos
 INSERT INTO Cursos (Sigla, Nombre, Semestre, Creditos) VALUES
 ('IE-0999', 'Laboratorio de robótica', 9, 3),
 ('IE-0888', 'Análisis de datos I', 8, 3);
 `````
+![ ](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/10.png)
 `````
 -- Insertando requisitos para cursos nuevos
 INSERT INTO Requisitos (CursoID, RequisitoCursoID) VALUES
 (37, 36);
 `````
+![ ](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/12.png)
 `````
 -- Insertando de descripciones para cursos nuevos
 INSERT INTO Descripciones (CursoID, Descripcion, Dificultad) VALUES
 (37, 'Un laboratorio de robótica es un curso presencial dedicado a la investigación, el desarrollo y la enseñanza en el campo de la robótica.', 'Media'),
 (38, 'Se profundiza en el uso de SQL y otras herramientas del análisis de datos. ', 'Media');
 `````
+![ ](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/11.png)
 ## 3. Consultas en la base de datos
 `````
 -- Consulta para listar todos los cursos con su sigla, nombre, semestre, creditos, descripcion y dificultad.
@@ -136,6 +142,7 @@ FROM Cursos
 INNER JOIN Descripciones
 ON Cursos.CursoID = Descripciones.CursoID; 
 `````
+![ ](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/13.png)
 `````
 -- Muestra los requisitos del curso en específico: IE-0613
 SELECT c.Sigla AS Curso, r.RequisitoCursoID AS Requisito
@@ -143,18 +150,21 @@ FROM Cursos c
 JOIN Requisitos r ON c.CursoID = r.CursoID
 WHERE c.Sigla = 'IE-0613';
 `````
+![ ](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/14.png)
 `````
 -- Muestra los cursos que no son optativos
 SELECT Sigla, Nombre, Semestre, Creditos
 FROM Cursos
 WHERE Sigla NOT LIKE 'IE-OP%';
 `````
+![ ](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/15.png)
 `````
 -- Lista los cursos que pertenecen al 10mo semestre 
 SELECT Sigla, Nombre, Semestre, Creditos
 FROM Cursos
 WHERE Semestre = 10;
 `````
+![ ](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/16.png)
 ## 4. Actualizaciones
 `````
 -- Actualizando nombre y créditos de 3 de los cursos optativos por medio de la sigla
@@ -172,6 +182,7 @@ WHERE Sigla IN ('IE-OP3');
 SELECT * FROM ingenieriaelectrica.cursos
 WHERE Sigla LIKE 'IE-OP%';
 `````
+![ ](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/17.png)
 `````
 -- Actualizar descripción y dificultad de 3 cursos existentes por medio del ID del curso
 UPDATE Descripciones
@@ -184,7 +195,7 @@ UPDATE Descripciones
 SET Descripcion = 'Calibración de instrumentos de medida, la trazabilidad de patrones de medida, la incertidumbre de la medida, y la gestión de la calidad en laboratorios de metrología.', Dificultad = 'Fácil'
 WHERE CursoID IN (18);
 `````
-
+![ ](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/18.png)
 ## 5. Eliminación de datos
 `````
 -- Elimina un curso inventado Laboratorio de robótica y 2 cursos del plan Optativa 4 y Modelos porbabilisticos
@@ -209,12 +220,17 @@ WHERE CursoID = '19' OR RequisitoCursoID = '19';
 DELETE FROM Cursos WHERE CursoID = '19';
 SET SQL_SAFE_UPDATES=1;
 `````
+![Tabla cursos actualizada ](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/5.png)
+
+
 `````
 -- Elimina requisitos específicos de 2 cursos existentes 
 DELETE FROM Requisitos WHERE CursoID = '11';
 DELETE FROM Requisitos WHERE CursoID = '13';
 `````
+![Tabla requisitos antes](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/7.png)
 
+![Tabla requisitos actualizada ](https://github.com/eve2030f/ie0217/blob/main/Tareas/TAREA_SEIS/Imagenes/6.png)
 ## Parte Teórica
 
 1. ¿Qué es una base de datos relacional y cuáles son sus características fundamentales?
