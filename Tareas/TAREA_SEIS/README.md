@@ -1,4 +1,4 @@
-# Tarea 5
+# Tarea 6
 
 Universidad de Costa Rica
 
@@ -51,7 +51,73 @@ CREATE TABLE Descripciones (
     FOREIGN KEY (CursoID) REFERENCES Cursos(CursoID)
 );
 `````
+2. Inserción de datos
+   `````
+-- Insertando cursos actuales
+INSERT INTO Cursos (Sigla, Nombre, Semestre, Creditos) VALUES
+('IE-0579', 'Administración de sistemas', 9, 4),
+('IE-0613', 'Electrónica industrial', 9, 4),
+('IE-0599', 'Anteproyecto de TFG', 9, 4),
+('IE-OP1', 'Optativa I', 9, 3),
+('IE-OP2', 'Optativa II', 9, 3),
+('IE-0679', 'Ciencia de datos para la est. y pron. de eventos', 10, 3),
+('IE-0541', 'Seguridad ocupacional', 10, 3),
+('IE-OP3', 'Optativa III', 10, 3),
+('IE-OP4', 'Optativa IV', 10, 3),
+('TFG', 'Trabajo final de graduación', 10, 0);
 
+-- Insertando cursos que son requisitos de los cursos actuales anteriores para poder emparejarlos
+INSERT INTO Cursos (Sigla, Nombre, Semestre, Creditos) VALUES
+('IE-0479', 'Ingeniería económica', 8, 3),
+('IE-0413', 'ElectrónicaII', 5, 3),
+('IE-0499', 'Proyecto eléctrico', 8, 3),
+('IE-0405', 'Modelos probabilísticos de señales y sistemas', 6, 3),
+('IE-0501', 'Responsabilidades en el ejercicio profesional de la ingeniería eléctrica', 6, 1),
+('IE-0315', 'Máquinas eléctricas I', 6, 3);
+
+-- Insertando requisitos de cursos actuales
+INSERT INTO Requisitos (CursoID, RequisitoCursoID) VALUES
+(11, 31),
+(12, 32),
+(12, 36),
+(13, 33),
+(16, 34),
+(16, 11),
+(17, 35);
+
+-- Insertando descipciones de cursos actuales
+INSERT INTO Descripciones (CursoID, Descripcion, Dificultad) VALUES
+(11, 'Introduce a los estudiantes en los principios y prácticas fundamentales para la gestión de sistemas informáticos complejos, incluyendo redes, seguridad informática, administración de servidores y almacenamiento de datos.', 'Difícil'),
+(12, 'Profundiza en los conceptos y aplicaciones de la electrónica en entornos industriales. Aborda temas como circuitos electrónicos, sistemas de control, instrumentación y sensores, robótica industrial y automatización.', 'Difícil'),
+(13, 'Guía a los estudiantes en la fase inicial del Trabajo Final de Graduación (TFG), enfocándose en la definición del tema de investigación, la formulación de preguntas de investigación, la revisión bibliográfica y la elaboración de un plan de trabajo detallado.', 'Difícil'),
+(14, 'Curso a elegir por el estudiante', 'Media'),
+(15, 'Curso a elegir por el estudiante', 'Media'),
+(16, 'Introduce a los estudiantes en los principios y aplicaciones de la ciencia de datos para el análisis y la predicción de eventos en diversos ámbitos. Se enfoca en técnicas de minería de datos, aprendizaje automático y visualización de datos para extraer información valiosa y generar pronósticos confiables.', 'Media'),
+(17, 'Principios fundamentales de la seguridad y salud ocupacional, enfocándose en la identificación, evaluación y control de riesgos laborales. Busca desarrollar habilidades para prevenir accidentes y enfermedades profesionales, promoviendo ambientes de trabajo seguros y saludables en diversos sectores.', 'Media'),
+(18, 'Curso a elegir por el estudiante', 'Media'),
+(19, 'Curso a elegir por el estudiante', 'Media'),
+(20, 'Proyecto de investigación original y aplicado en el ámbito de la ingeniería eléctrica.', 'Media'),
+(31, 'Introduce a los estudiantes en los principios y conceptos fundamentales de la ingeniería económica, enfocándose en la evaluación de proyectos de inversión, la toma de decisiones financieras y el análisis de costos y beneficios. ', 'Media'),
+(32, 'Profundiza en los conceptos de electrónica analógica y digital, incluyendo circuitos con transistores, amplificadores, circuitos integrados, microcontroladores y sistemas de comunicación. ', 'Difícil'),
+(33, 'Curso permite a los estudiantes aplicar los conocimientos y habilidades adquiridos en cursos previos.', 'Media'),
+(34, 'Aborda temas como procesos estocásticos, teoría de la estimación y detección, y teoría de la decisión. ', 'Media'),
+(35, 'Las responsabilidades éticas, legales y sociales que enfrentan los ingenieros eléctricos en su ejercicio profesional. ', 'Fácil'),
+(36, 'Desarrollo del funcionamiento de las máquinas eléctricas, incluyendo motores, generadores y transformadores. El curso abarca tanto la teoría como la práctica, con un enfoque en la comprensión de los conceptos físicos y el análisis de los circuitos magnéticos y eléctricos que caracterizan a estas máquinas.', 'Media');
+
+-- Agregando 2 cursos nuevos
+INSERT INTO Cursos (Sigla, Nombre, Semestre, Creditos) VALUES
+('IE-0999', 'Laboratorio de robótica', 9, 3),
+('IE-0888', 'Análisis de datos I', 8, 3);
+
+-- Insertando requisitos para cursos nuevos
+INSERT INTO Requisitos (CursoID, RequisitoCursoID) VALUES
+(37, 36);
+
+-- Insertando de descripciones para cursos nuevos
+INSERT INTO Descripciones (CursoID, Descripcion, Dificultad) VALUES
+(37, 'Un laboratorio de robótica es un curso presencial dedicado a la investigación, el desarrollo y la enseñanza en el campo de la robótica.', 'Media'),
+(38, 'Se profundiza en el uso de SQL y otras herramientas del análisis de datos. ', 'Media');
+   `````
 
 ## Parte Teórica
 
