@@ -66,7 +66,7 @@ INSERT INTO Cursos (Sigla, Nombre, Semestre, Creditos) VALUES
 ('IE-OP4', 'Optativa IV', 10, 3),
 ('TFG', 'Trabajo final de graduación', 10, 0);
 `````
-![]https://github.com/eve2030f/ie0217/blob/5b69bd15255be46880f63448adf5718450d43246/Tareas/TAREA_SEIS/Imagenes/1.png
+(https://github.com/eve2030f/ie0217/blob/5b69bd15255be46880f63448adf5718450d43246/Tareas/TAREA_SEIS/Imagenes/1.png)
 `````
 -- Insertando cursos que son requisitos de los cursos actuales anteriores para poder emparejarlos
 INSERT INTO Cursos (Sigla, Nombre, Semestre, Creditos) VALUES
