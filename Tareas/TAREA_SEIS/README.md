@@ -13,8 +13,44 @@ I Semestre 2024
 
 ## Parte Práctica 
 
-## Link de Doxyfile por medio del Netlify:
+1. Creación de la base de datos y tablas
+`````
+-- Creando la Base de datos
+CREATE DATABASE IF NOT EXISTS IngenieriaElectrica;
 
+-- Usar la base de datos creada
+USE IngenieriaElectrica;
+
+-- Creando la tabla Cursos
+CREATE TABLE Cursos (
+    CursoID INT AUTO_INCREMENT, -- llave candidata de la tabla
+    Sigla VARCHAR(10) UNIQUE,
+    Nombre VARCHAR(100),
+    Semestre INT,
+    Creditos INT,
+    PRIMARY KEY (CursoID)
+);
+
+-- Creando la tabla Requisitos
+CREATE TABLE Requisitos (
+    RequisitoID INT AUTO_INCREMENT, -- llave candidata de la tabla
+    CursoID INT,
+    RequisitoCursoID INT,
+    PRIMARY KEY (RequisitoID),
+    FOREIGN KEY (CursoID) REFERENCES Cursos(CursoID),
+    FOREIGN KEY (RequisitoCursoID) REFERENCES Cursos(CursoID)
+);
+
+-- Creando la tabla Descripciones
+CREATE TABLE Descripciones (
+    DescripcionID INT AUTO_INCREMENT, -- llave candidata de la tabla
+    CursoID INT,
+    Descripcion TEXT,
+    Dificultad ENUM('Fácil', 'Media', 'Difícil'),
+    PRIMARY KEY (DescripcionID),
+    FOREIGN KEY (CursoID) REFERENCES Cursos(CursoID)
+);
+`````
 
 
 ## Parte Teórica
